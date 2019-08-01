@@ -1,0 +1,142 @@
+A51 MACRO ASSEMBLER  SWITCH1                                                              08/18/2014 11:54:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\switch1.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE switch1.asm SET(SMALL) DEBUG OBJECT(C:\isp\switch1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00A0                 1     sw1 bit p2.0 
+  00A1                 2     sw2 bit p2.1 
+  00A2                 3     sw3 bit p2.2 
+  00A3                 4     sw4 bit p2.3 
+  00A4                 5     sw5 bit p2.4 
+  00A5                 6     sw6 bit p2.5 
+  00A6                 7     sw7 bit p2.6 
+  00A7                 8     sw8 bit p2.7 
+                       9     
+  00B0                10     led1 bit p3.0
+  00B1                11     led2 bit p3.1
+  00B2                12     led3 bit p3.2
+  00B3                13     led4 bit p3.3
+  00B4                14     led5 bit p3.4
+  00B5                15     led6 bit p3.5
+  00B6                16     led7 bit p3.6
+  00B7                17     led8 bit p3.7
+                      18     
+----                  19     cseg at 0
+                      20     ;mov p2,#00fh
+                      21     
+0000                  22     main:
+                      23     
+0000 30A004           24     jnb sw1,l1
+0003 D2B0             25     setb led1
+0005 8002             26     sjmp next1
+0007                  27     l1:
+0007 C2B0             28             clr led1
+0009                  29     next1:
+                      30     
+0009 30A104           31     jnb sw2,l2
+000C D2B1             32     setb led2
+000E 8002             33     sjmp next2
+0010                  34     l2:
+0010 C2B1             35             clr led2
+0012                  36     next2:
+                      37     
+0012 30A204           38     jnb sw3,l3
+0015 D2B2             39     setb led3
+0017 8002             40     sjmp next3
+0019                  41     l3:
+0019 C2B2             42             clr led3
+001B                  43     next3:
+                      44     
+001B 30A304           45     jnb sw4,l4
+001E D2B3             46     setb led4
+0020 8002             47     sjmp next4
+0022                  48     l4:
+0022 C2B3             49             clr led4
+0024                  50     next4:
+                      51     
+0024 30A404           52     jnb sw5,l5
+0027 D2B4             53     setb led5
+0029 8002             54     sjmp next5
+002B                  55     l5:
+002B C2B4             56             clr led5
+002D                  57     next5:
+                      58     
+A51 MACRO ASSEMBLER  SWITCH1                                                              08/18/2014 11:54:19 PAGE     2
+
+002D 30A504           59     jnb sw6,l6
+0030 D2B5             60     setb led6
+0032 8002             61     sjmp next6
+0034                  62     l6:
+0034 C2B5             63             clr led6
+0036                  64     next6:
+                      65     
+0036 30A604           66     jnb sw7,l7
+0039 D2B6             67     setb led7
+003B 8002             68     sjmp next7
+003D                  69     l7:
+003D C2B6             70             clr led7
+003F                  71     next7:
+                      72     
+003F 30A704           73     jnb sw8,l8
+0042 D2B7             74     setb led8
+0044 8002             75     sjmp next8
+0046                  76     l8:
+0046 C2B7             77             clr led8
+0048                  78     next8:
+                      79     
+                      80     
+0048 80B6             81     sjmp main
+                      82     end
+A51 MACRO ASSEMBLER  SWITCH1                                                              08/18/2014 11:54:19 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0007H   A   
+L2 . . . . . . . .  C ADDR   0010H   A   
+L3 . . . . . . . .  C ADDR   0019H   A   
+L4 . . . . . . . .  C ADDR   0022H   A   
+L5 . . . . . . . .  C ADDR   002BH   A   
+L6 . . . . . . . .  C ADDR   0034H   A   
+L7 . . . . . . . .  C ADDR   003DH   A   
+L8 . . . . . . . .  C ADDR   0046H   A   
+LED1 . . . . . . .  B ADDR   00B0H.0 A   
+LED2 . . . . . . .  B ADDR   00B0H.1 A   
+LED3 . . . . . . .  B ADDR   00B0H.2 A   
+LED4 . . . . . . .  B ADDR   00B0H.3 A   
+LED5 . . . . . . .  B ADDR   00B0H.4 A   
+LED6 . . . . . . .  B ADDR   00B0H.5 A   
+LED7 . . . . . . .  B ADDR   00B0H.6 A   
+LED8 . . . . . . .  B ADDR   00B0H.7 A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+NEXT1. . . . . . .  C ADDR   0009H   A   
+NEXT2. . . . . . .  C ADDR   0012H   A   
+NEXT3. . . . . . .  C ADDR   001BH   A   
+NEXT4. . . . . . .  C ADDR   0024H   A   
+NEXT5. . . . . . .  C ADDR   002DH   A   
+NEXT6. . . . . . .  C ADDR   0036H   A   
+NEXT7. . . . . . .  C ADDR   003FH   A   
+NEXT8. . . . . . .  C ADDR   0048H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SW1. . . . . . . .  B ADDR   00A0H.0 A   
+SW2. . . . . . . .  B ADDR   00A0H.1 A   
+SW3. . . . . . . .  B ADDR   00A0H.2 A   
+SW4. . . . . . . .  B ADDR   00A0H.3 A   
+SW5. . . . . . . .  B ADDR   00A0H.4 A   
+SW6. . . . . . . .  B ADDR   00A0H.5 A   
+SW7. . . . . . . .  B ADDR   00A0H.6 A   
+SW8. . . . . . . .  B ADDR   00A0H.7 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

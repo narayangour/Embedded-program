@@ -1,0 +1,33 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             reset,code,readonly
+    2 00000000                 arm
+    3 00000000                 entry
+    4 00000000 E3A00001        mov              r0,#1
+    5 00000004 E3A000C8        mov              r0,#200
+    6 00000008 E3A00080        mov              r0,#128
+    7 0000000C E3A00019        mov              r0,#25
+    8 00000010                 END
+Command Line: --debug --xref --apcs=interwork --depend=instr.d -oinstr.o -IC:\K
+eil4\ARM\RV31\INC -IC:\Keil4\ARM\CMSIS\Include -IC:\Keil4\ARM\Inc\Philips --pre
+define="__EVAL SETA 1" --list=instr.lst instr.arm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+reset 00000000
+
+Symbol: reset
+   Definitions
+      At line 1 in file instr.arm
+   Uses
+      None
+Comment: reset unused
+1 symbol
+332 symbols in table

@@ -1,0 +1,53 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        01/19/2004  02:31:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL2\C51\BIN\BL51.EXE C:\MYISP\led_prog2.obj TO C:\MYISP\ledp0 PRINT (.\ledp0.m51)
+
+
+INPUT MODULES INCLUDED:
+  C:\MYISP\led_prog2.obj (LED_PROG2)
+
+
+LINK MAP OF MODULE:  C:\MYISP\ledp0 (LED_PROG2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     000CH     ABSOLUTE     
+            CODE    000CH     0015H     UNIT         DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  C:\MYISP\ledp0 (LED_PROG2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_PROG2
+  C:000CH         SEGMENT       DELAY
+  C:0002H         SYMBOL        AGAIN
+  C:000CH         SYMBOL        DELAY100MS
+  C:0012H         SYMBOL        DELAY10MS
+  C:0018H         SYMBOL        DELAY1MS
+  C:000CH         SYMBOL        ENDMAIN
+  C:0014H         SYMBOL        L1
+  C:000EH         SYMBOL        L2
+  D:00A0H         SYMBOL        LEDS
+  C:0000H         SYMBOL        MAIN
+  D:00A0H         SYMBOL        P2
+  C:0000H         LINE#         5
+  C:0002H         LINE#         7
+  C:0005H         LINE#         8
+  C:0007H         LINE#         9
+  C:0009H         LINE#         10
+  C:000AH         LINE#         11
+  -------         ENDMOD        LED_PROG2
+
+Program Size: data=8.0 xdata=0 code=33
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

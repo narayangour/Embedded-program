@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  ARGU_MACRO                                                           08/06/2014 19:31:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN ARGU_MACRO.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ARGU_MACRO.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     RB MACRO ARG1 
+                       2     MOV A,#ARG1
+                       3     MOV C,ACC.0
+                       4     MOV PSW.3,C
+                       5     MOV C,ACC.1
+                       6     MOV PSW.4,C
+                       7     ENDM
+                       8     
+----                   9     CSEG AT 0
+0000 7434             10     MOV A,#34H
+                      11     RB 0
+000C FF               17     MOV R7,A
+                      18     RB 1
+0017 FF               24     MOV R7,A
+                      25     RB 2
+0022 FF               31     MOV R7,A
+                      32     RB 3
+002D FF               38     MOV R7,A
+                      39     END
+A51 MACRO ASSEMBLER  ARGU_MACRO                                                           08/06/2014 19:31:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

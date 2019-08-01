@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  BIT_WISE                                                             08/15/2014 22:07:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\bit_wise.obj
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE bit_wise.asm SET(SMALL) DEBUG OBJECT(C:\isp\bit_wise.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1             outpin bit p1.0
+  0091                 2             inpin bit p1.1
+  0000                 3             temp bit 20h.0
+----                   4             cseg at 0
+0000                   5     main:
+0000 2091FD            6             jb inpin,$
+0003 C290              7             clr outpin
+0005 3091FD            8             jnb inpin,$
+0008 D290              9             setb outpin
+000A 80F4             10             sjmp main
+                      11     end
+                                     
+                                     
+A51 MACRO ASSEMBLER  BIT_WISE                                                             08/15/2014 22:07:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+INPIN. . . . . . .  B ADDR   0090H.1 A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+OUTPIN . . . . . .  B ADDR   0090H.0 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TEMP . . . . . . .  B ADDR   0020H.0 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

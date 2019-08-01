@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  BEBHAV                                                               08/06/2014 19:08:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN bebhav.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE bebhav.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0
+0000 758920            2     MOV TMOD ,#20H
+0003 759850            3     MOV SCON,#50H
+0006 758DFD            4     MOV TH1,#-3
+0009 D28E              5     SETB TR1
+                       6     
+000B 7860              7     MOV R0,#60H
+                       8     
+000D C298              9     label:  CLR RI
+                      10     
+000F 3098FD           11     RPT:    JNB RI,RPT
+0012 E599             12             mov a,sbuf 
+                      13             ;MOV P0,A
+0014 F6               14             mov @r0,a
+0015 08               15             inc r0
+0016 B40DF4           16             cjne a,#0Dh,label
+                      17     
+                      18     END
+A51 MACRO ASSEMBLER  BEBHAV                                                               08/06/2014 19:08:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LABEL. . . . . . .  C ADDR   000DH   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RPT. . . . . . . .  C ADDR   000FH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

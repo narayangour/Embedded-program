@@ -1,0 +1,43 @@
+C51 COMPILER V7.08   DISPI_2_MUX_SEGS                                                      08/28/2014 14:34:04 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DISPI_2_MUX_SEGS
+OBJECT MODULE PLACED IN C:\ng\dispi_2_mux_segs.obj
+COMPILER INVOKED BY: C:\KEIL708\C51\BIN\C51.EXE dispi_2_mux_segs.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ng\dispi_2_mux_se
+                    -gs.obj)
+
+line level    source
+
+   1          void dispi_2_mux_segs(unsigned char n,int t)
+   2          {
+   3   1              if(t==0)
+   4   1              {
+   5   2                      seg=seg_lut[n/10];
+*** ERROR C202 IN LINE 5 OF DISPI_2_MUX_SEGS.C: 'seg': undefined identifier
+   6   2                      sel3=0; 
+*** ERROR C202 IN LINE 6 OF DISPI_2_MUX_SEGS.C: 'sel3': undefined identifier
+   7   2                      delay_ms(1);
+   8   2                      sel3=1; 
+   9   2              
+  10   2                      seg=seg_lut[n%10];
+  11   2                      sel4=0;
+  12   2                      delay_ms(1);
+  13   2                      sel4=1;                 
+  14   2      
+  15   2              }       
+  16   1              else
+  17   1              {
+  18   2              seg=seg_lut[n/10];
+  19   2              sel1=0;
+  20   2              delay_ms(1);
+  21   2              sel1=0;
+  22   2                      
+  23   2              seg=seg_lut[n%10];
+  24   2              sel2=0;
+  25   2              delay_ms(1);
+  26   2              sel2=1;
+  27   2              }
+  28   1      
+  29   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)

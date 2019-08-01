@@ -1,0 +1,34 @@
+C51 COMPILER V7.08   KEYPAD_LED                                                            08/28/2014 15:59:56 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE KEYPAD_LED
+OBJECT MODULE PLACED IN C:\ng\keypad_led.obj
+COMPILER INVOKED BY: C:\KEIL708\C51\BIN\C51.EXE keypad_led.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ng\keypad_led.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          #define leds P2
+   4          #define init_leds() leds=0xf0
+   5          
+   6          
+   7          void disp_bin_num_leds(unsigned char n)
+   8          {
+   9   1      leds=0xf0;
+  10   1      leds^=n;
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      7    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

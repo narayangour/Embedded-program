@@ -1,0 +1,51 @@
+A51 MACRO ASSEMBLER  DELAY_GIVEN                                                          08/12/2014 11:02:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN DELAY_GIVEN.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE DELAY_GIVEN.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0
+                       2     
+0000                   3     MAIN:
+0000 90FFFF            4     MOV DPTR,#65535
+0003 1105              5     ACALL DELAY_A
+                       6     
+0005                   7     DELAY_A:
+                       8     
+0005                   9     L8:
+                      10     
+0005 E582             11             MOV A,DPL
+0007 1582             12             DEC DPL
+0009 7000             13             JNZ L7
+                      14     
+000B                  15     L7:
+000B E582             16             MOV A,DPL
+000D 4583             17             ORL A,DPH
+000F 70F4             18             JNZ L8
+0011 22               19             RET
+0012                  20     ENDMAIN:
+                      21     END
+A51 MACRO ASSEMBLER  DELAY_GIVEN                                                          08/12/2014 11:02:36 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY_A. . . . . .  C ADDR   0005H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+ENDMAIN. . . . . .  C ADDR   0012H   A   
+L7 . . . . . . . .  C ADDR   000BH   A   
+L8 . . . . . . . .  C ADDR   0005H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

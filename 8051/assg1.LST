@@ -1,0 +1,36 @@
+C51 COMPILER V7.08   ASSG1                                                                 08/21/2014 11:38:01 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE ASSG1
+OBJECT MODULE PLACED IN C:\isp\assg1.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE assg1.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\assg1.obj)
+
+line level    source
+
+   1          //at user specified location
+   2          code char s[]="welcome to vector";
+   3          data char d1[18] _at_ 0x30;
+   4          xdata char d2[18] _at_ 0x1000;
+   5          main()
+   6                          {
+   7   1                              unsigned char i;
+   8   1                              for(i=0;s[i];i++)
+   9   1                              {
+  10   2                                      d2[i]=d1[i]=s[i];
+  11   2                              }
+  12   1                      while(1);
+  13   1                      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     33    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

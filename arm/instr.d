@@ -1,0 +1,1 @@
+instr.o: instr.arm

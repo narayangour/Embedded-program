@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  FIRST                                                                08/07/2014 06:51:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN first.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE first.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0h
+                       2     
+0000 7531FF            3     mov 31h,#0ffh
+0003 7532FF            4     mov 32h,#0ffh
+                       5     
+0006 E531              6     mov a,31h
+0008 2532              7     add a,32h
+000A F8                8     mov r0,a
+000B E4                9     clr a
+000C 3400             10     addc a,#00h
+                      11     
+000E 28               12     add a,r0
+000F C4               13     swap a
+0010 F540             14     mov 40h,a
+                      15     end
+A51 MACRO ASSEMBLER  FIRST                                                                08/07/2014 06:51:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

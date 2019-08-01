@@ -1,0 +1,9 @@
+Dependencies for Project 'arm project', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x5086D3A6)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d")
+F (.\LED.C)(0x543CB6A2)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips -o "led.o" --omf_browse "led.crf" --depend "led.d")
+I (C:\Keil4\ARM\Inc\Philips\lpc214x.h)(0x5086BE16)
+I (delay.h)(0x543BC37B)
+F (.\keypad.c)(0x543CB602)(-c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips -o "keypad.o" --omf_browse "keypad.crf" --depend "keypad.d")
+I (C:\Keil4\ARM\Inc\Philips\lpc214x.h)(0x5086BE16)
+F (.\keypad.h)(0x543BC14B)()
+F (.\delay.h)(0x543BC37B)()

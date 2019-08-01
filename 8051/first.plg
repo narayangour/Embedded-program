@@ -1,0 +1,20 @@
+<html>
+<body>
+<pre>
+<h1>µVision2 Build Log</h1>
+<h2>Project:</h2>
+V:\8051\first.uv2
+Project File Date:  08/13/2014
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling led.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=35
+"first" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling led.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=35
+creating hex file from "first"...
+"first" - 0 Error(s), 0 Warning(s).

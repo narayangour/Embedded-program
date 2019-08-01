@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  BIGGEST_DI                                                           08/22/2014 16:21:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\biggest_di.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE biggest_di.asm SET(SMALL) DEBUG OBJECT(C:\isp\biggest_di.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     string segment code
+----                   2     rseg string 
+0000 355E385C          3     str: db 53,94,56,92,74,65,43,23,83
+0004 4A412B17                
+0008 53                      
+----                   4     cseg at 0
+                       5     
+0000 7809              6             mov r0,#09h;for counting purposes
+0002 900000   F        7             mov dptr,#str
+                       8                     
+0005 E4                9             clr a;a=0
+0006 93               10             movc a,@a+dptr;a=53
+0007 F5F0             11             mov b,a
+0009 F530             12             mov 30h,a;b=53 as a max initialize
+                      13     
+                      14             
+                      15     
+000B                  16     again:
+000B A3               17             inc dptr;dptr point to 94
+000C E4               18             clr a;a=0
+000D 93               19             movc a,@a+dptr;a=94
+000E FA               20             mov r2,a
+000F 84               21             div ab
+                      22     
+0010 6002             23             jz l1
+0012 8A30             24             mov 30h,r2      
+0014 8530F0           25     l1:     mov b,30h
+0017 E582             26             mov a,dpl
+0019 B400EF   F       27             cjne a,#str+9,again
+                      28     end
+A51 MACRO ASSEMBLER  BIGGEST_DI                                                           08/22/2014 16:21:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000BH   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+L1 . . . . . . . .  C ADDR   0014H   A   
+STR. . . . . . . .  C ADDR   0000H   R   SEG=STRING
+STRING . . . . . .  C SEG    0009H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

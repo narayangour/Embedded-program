@@ -1,0 +1,103 @@
+C51 COMPILER V7.08   DISP_METHOD2                                                          08/25/2014 11:21:07 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DISP_METHOD2
+OBJECT MODULE PLACED IN C:\isp\disp_method2.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE disp_method2.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\disp_method2.obj)
+
+line level    source
+
+   1          #include"delays.h"
+   2          #include"reg51.h"
+   3          
+   4          sbit sel1=P2^3;
+   5          sbit sel2=P2^2;
+   6          sbit sel3=P2^1;
+   7          sbit sel4=P2^0;
+   8          
+   9          sbit seg_dp=P0^7;
+  10          sbit seg_g=P0^6;
+  11          sbit seg_f=P0^5;
+  12          sbit seg_e=P0^4;
+  13          sbit seg_d=P0^3;
+  14          sbit seg_c=P0^2;
+  15          sbit seg_b=P0^1;
+  16          sbit seg_a=P0^0;
+  17          
+  18          code unsigned char seg_lut[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+  19          unsigned char dp1=0xff,dp2=0xff,dp3=0xff,dp4=0xff;
+  20          //dp1=0xff;dp2=0xff;dp3=0xff;dp4=0xff;
+  21          
+  22          bit dp;
+  23          void t (unsigned char n)
+  24          {
+  25   1      unsigned char s=seg_lut[n];
+  26   1      seg_dp =dp;
+  27   1      seg_g = (s&0x40)?1:0;
+  28   1      seg_f = (s&0x20)?1:0;
+  29   1      seg_e = (s&0x10)?1:0;
+  30   1      seg_d = (s&0x08)?1:0;
+  31   1      seg_c = (s&0x04)?1:0;
+  32   1      seg_b = (s&0x02)?1:0;
+  33   1      seg_a = (s&0x01)?1:0;
+  34   1      }
+  35          
+  36          void dispi_4_mux_segs(unsigned int n)
+  37          {
+  38   1      
+  39   1                      unsigned char t1,t2,t3,t4;
+  40   1      
+  41   1                      t1=n/1000;t2=(n/100)%10;t3=(n%100)/10;t4=n%10;
+  42   1                      
+  43   1                      //for decimal poit 
+  44   1                      dp=(dp1&0x80)?1:0;
+  45   1      
+  46   1                      t(t1);
+  47   1      
+  48   1                      sel1=0;
+  49   1                      delay_ms(1);
+  50   1                      sel1=1;
+  51   1      
+  52   1      dp=(dp2&0x80)?1:0;
+  53   1                      t(t2);
+  54   1                      sel2 = 0;
+  55   1                      delay_ms(1);
+C51 COMPILER V7.08   DISP_METHOD2                                                          08/25/2014 11:21:07 PAGE 2   
+
+  56   1                      sel2 = 1;
+  57   1      
+  58   1      dp=(dp3&0x80)?1:0;
+  59   1                      t(t3);
+  60   1                      sel3=0;
+  61   1                      delay_ms(1);
+  62   1                      sel3=1;
+  63   1      
+  64   1      dp=1;
+  65   1                      t(t4);
+  66   1                      sel4=0;
+  67   1                      delay_ms(1);
+  68   1                      sel4=1;
+  69   1      }
+  70          main()
+  71          {
+  72   1              dp3=0x7f;
+  73   1              sel1=0,sel2=0,sel3=0,sel4=0;
+  74   1              while(1)
+  75   1              {
+  76   2              dispi_4_mux_segs(1111);
+  77   2              }
+  78   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    285    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  BIGGEST_COPY                                                         08/08/2014 18:54:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN biggest_copy.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE biggest_copy.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     string segment code
+----                   2     rseg string 
+0000 355E385C          3     str: db 53,94,56,92,74,65,43,23,83
+0004 4A412B17                
+0008 53                      
+----                   4     cseg at 0
+                       5     
+0000 7809              6             mov r0,#09h;for counting purposes
+0002 900000   F        7             mov dptr,#str
+0005 E4                8             clr a;a=0
+0006 93                9             movc a,@a+dptr;a=53
+0007 F9               10             mov r1,a;b=53 as a max initialize
+0008 F5F0             11             mov b,a
+                      12     
+000A C3               13             clr c
+000B 4004             14             jc again
+                      15             
+000D EA               16     l1:     mov a,r2
+000E FB               17             mov r3,a
+000F 8BF0             18             mov b,r3        
+                      19     
+0011                  20     again:
+0011 A3               21             inc dptr;dptr point to 94
+0012 E4               22             clr a;a=0
+0013 93               23             movc a,@a+dptr;a=94
+0014 FA               24             mov r2,a
+0015 84               25             div ab
+                      26     
+0016 70F5             27             jnz l1
+0018 EA               28             mov a,r2
+0019 FB               29             mov r3,a
+001A 8BF0             30             mov b,r3
+                      31     
+001C 18               32             dec r0
+001D B800F1           33             cjne r0,#00h,again
+                      34             
+                      35     end
+A51 MACRO ASSEMBLER  BIGGEST_COPY                                                         08/08/2014 18:54:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0011H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+L1 . . . . . . . .  C ADDR   000DH   A   
+STR. . . . . . . .  C ADDR   0000H   R   SEG=STRING
+STRING . . . . . .  C SEG    0009H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

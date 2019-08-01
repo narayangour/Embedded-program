@@ -1,0 +1,36 @@
+C51 COMPILER V7.08   DISP2I_4_MUX_SEGS                                                     08/28/2014 14:34:05 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DISP2I_4_MUX_SEGS
+OBJECT MODULE PLACED IN C:\ng\disp2i_4_mux_segs.obj
+COMPILER INVOKED BY: C:\KEIL708\C51\BIN\C51.EXE disp2i_4_mux_segs.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ng\disp2i_4_mux_
+                    -segs.obj)
+
+line level    source
+
+   1          void disp2i_4_mux_segs(unsigned int n)
+   2          {
+   3   1      
+   4   1      unsigned char nod=0,i;
+   5   1      unsigned char t=n;
+   6   1              while(t)
+   7   1              {
+   8   2                      nod++;
+   9   2                      t=t/10;
+  10   2              }
+  11   1                      i=nod;
+  12   1              while(n)
+  13   1              {
+  14   2                      seg=seg_lut[n%10];
+*** ERROR C202 IN LINE 14 OF DISP2I_4_MUX_SEGS.C: 'seg': undefined identifier
+  15   2                      p2=p2 & (~(1<<(nod-i)));
+*** ERROR C202 IN LINE 15 OF DISP2I_4_MUX_SEGS.C: 'p2': undefined identifier
+  16   2              delay_ms(1);
+  17   2              p2=oxff;
+  18   2              n=n/10;
+  19   2              i--;
+  20   2               }
+  21   1      
+  22   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)

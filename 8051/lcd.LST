@@ -1,0 +1,149 @@
+C51 COMPILER V7.08   LCD                                                                   10/08/2014 23:20:06 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN C:\ISPs\lcd.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lcd.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ISPs\lcd.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"delays.h"
+   3          #define lcd_data P0
+   4          
+   5          sbit rs=P2^0;
+   6          sbit rw=P2^1;
+   7          sbit en=P2^2;
+   8          
+   9          void write_lcd(unsigned char dat)
+  10          {
+  11   1              lcd_data=dat;
+  12   1              rw=0;
+  13   1              en=1;
+  14   1              en=0;
+  15   1              delay_ms(2);
+  16   1      }
+  17          void cmd_lcd(unsigned char cmd)
+  18          {
+  19   1              rs=0;
+  20   1              write_lcd(cmd);
+  21   1      }
+  22          void putc_lcd(unsigned char var)
+  23          {
+  24   1              rs=1;   
+  25   1              write_lcd(var);
+  26   1      }
+  27          void init_lcd()
+  28          {
+  29   1      cmd_lcd(0x02);
+  30   1      cmd_lcd(0x30);
+  31   1      cmd_lcd(0x06);
+  32   1      cmd_lcd(0x0c);
+  33   1      cmd_lcd(0x01);  
+  34   1      cmd_lcd(0x80);
+  35   1      delay_ms(10);
+  36   1      
+  37   1      }
+  38          /*void puts2_lcd(char *s)
+  39          {
+  40          unsigned int i=0;
+  41          while(*s)
+  42          {0
+  43          if(i==16)
+  44          cmd_lcd(0xc0);
+  45          putc_lcd(*s++);
+  46          i++;
+  47          }
+  48          }
+  49          void puts_lcd(char *s)
+  50          {
+  51          while(*s)
+  52          putc_lcd(*s++);
+  53          }
+  54          void putui_lcd(unsigned int n)
+  55          {
+C51 COMPILER V7.08   LCD                                                                   10/08/2014 23:20:06 PAGE 2   
+
+  56                  char a[5]={0},i=0;
+  57                  if(n==0){putc_lcd('0');}
+  58          else
+  59                  while(n)
+  60                  {
+  61                  a[i++]=(n%10)+48;
+  62                  n/=10;
+  63                  }
+  64                  for(--i;i>=0;i--)
+  65                  putc_lcd(a[i]);
+  66          }
+  67          void putsi_lcd(int n)
+  68          {
+  69                  if(n<0){putc_lcd('_');}
+  70                  putui_lcd(n);
+  71          }
+  72          void puthex_lcd(unsigned int n)
+  73          {
+  74          char a[4]={'0','0','0','0'},i=3,t;
+  75                  while(n)
+  76                  {
+  77                          t=(n%16);
+  78                          n/=16;
+  79                          if(t>9)
+  80                                  t=(t-10)+'A';
+  81                          else 
+  82                                  t=t+48;
+  83                          a[i--]=t;
+  84                  }
+  85                  for(i=0;i<4;i++)
+  86                  putc_lcd(a[i]);
+  87          }
+  88          void putbin_lcd(unsigned int n)
+  89          {
+  90                  char i;
+  91                  for(i=15;i>=0;i--)
+  92                  {
+  93                          (n&(1<<i))?putc_lcd('1'):putc_lcd('0');
+  94                  }
+  95          }
+  96          void build_cgram(char *p,unsigned char s)
+  97          {
+  98                  unsigned char i;
+  99                  cmd_lcd(0x40);
+ 100                  for(i=0;i<s;i++)
+ 101                  {
+ 102                  putc_lcd(p[i]);
+ 103                  }
+ 104                  cmd_lcd(0x80);
+ 105          }*/
+ 106          /*float putf2_lcd(float f)
+ 107          {
+ 108                  unsigned char i;
+ 109                  unsigned char j;        
+ 110          i=f;
+ 111          for(j=0;j<3;j++)
+ 112          {
+ 113                          
+ 114          }       
+ 115          */
+ 116          
+ 117                  
+C51 COMPILER V7.08   LCD                                                                   10/08/2014 23:20:06 PAGE 3   
+
+ 118          
+ 119          
+ 120          
+ 121          /*void putf_lcd(float f)
+ 122          {
+ 123          int i=f;
+ 124          unsigned int j;
+ 125          j=(f-i)*1000;
+ 126          putui_lcd(i);
+ 127          putc_lcd('.');
+ 128          putui_lcd(j);
+ 129          
+ 130          }*/
+
+C51 FATAL-ERROR -
+  ACTION:  CREATING OBJECT-FILE
+  FILE:    C:\ISPs\lcd.obj
+  ERROR:   CAN'T CREATE FILE
+C51 TERMINATED.

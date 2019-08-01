@@ -1,0 +1,75 @@
+A51 MACRO ASSEMBLER  SWAP_A_B                                                             08/21/2014 12:57:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\swap_a_b.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE C:\isp\swap_a_b.src PR(.\swap_a_b.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; C:\isp\swap_a_b.SRC generated from: swap_a_b.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil2\C51\BIN\C51.EXE swap_a_b.c BROWSE DEBUG OBJECTEXTEND SRC(C:\isp\swap_a_b.
+                             SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    SWAP_A_B
+                       8     
+  00E0                 9     acc     DATA    0E0H
+  00F0                10     b       DATA    0F0H
+                      11     ?PR?main?SWAP_A_B    SEGMENT CODE 
+                      12             EXTRN   CODE (?C_STARTUP)
+                      13             PUBLIC  main
+                      14     ; //#include<intrins.h>
+                      15     ; sfr acc=0xe0;
+                      16     ; sfr b=0xf0;
+                      17     ; main()
+                      18     
+----                  19             RSEG  ?PR?main?SWAP_A_B
+0000                  20     main:
+                      21                             ; SOURCE LINE # 4
+                      22     ; {
+                      23                             ; SOURCE LINE # 5
+                      24     ; unsigned char t;
+                      25     ; acc=0x34;
+                      26                             ; SOURCE LINE # 7
+0000 7434             27             MOV     A,#034H
+                      28     ; b=0x56;
+                      29                             ; SOURCE LINE # 8
+0002 75F056           30             MOV     B,#056H
+                      31     ; t=acc;
+                      32                             ; SOURCE LINE # 9
+                      33     ;---- Variable 't?040' assigned to Register 'R7' ----
+                      34     ; acc=b;
+                      35                             ; SOURCE LINE # 10
+0005 E5F0             36             MOV     A,B
+                      37     ; b=t;
+                      38                             ; SOURCE LINE # 11
+0007 75F034           39             MOV     B,#034H
+                      40     ; }
+                      41                             ; SOURCE LINE # 12
+000A 22               42             RET     
+                      43     ; END OF main
+                      44     
+                      45             END
+A51 MACRO ASSEMBLER  SWAP_A_B                                                             08/21/2014 12:57:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?C_STARTUP . . . .  C ADDR   -----       EXT
+?PR?MAIN?SWAP_A_B.  C SEG    000BH       REL=UNIT
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+MAIN . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?SWAP_A_B
+SWAP_A_B . . . . .  N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

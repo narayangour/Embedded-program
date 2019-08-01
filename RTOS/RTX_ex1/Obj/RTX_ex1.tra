@@ -1,0 +1,23 @@
+*** Creating Trace Output File '.\Obj\RTX_ex1.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\obj\rtos_tx.o"'
+### List of Objects: adding '".\obj\led.o"'
+### List of Objects: adding '".\obj\rtx_config.o"'
+### List of Objects: adding '".\obj\startup.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI ".\obj\rtos_tx.o" ".\obj\led.o" ".\obj\rtx_config.o" ".\obj\startup.o" 
+--library_type=microlib --strict --scatter ".\Obj\RTX_ex1.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Lst\RTX_ex1.map" -o .\Obj\RTX_ex1.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Obj\RTX_ex1.axf'
+### ADS-LD Command File: '.\Obj\RTX_ex1.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Obj\RTX_ex1.lnp', Handle=0x0000070C
+### Writing '.lnp' file
+### ADS-LD Command file '.\Obj\RTX_ex1.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 2 errors
+### Updating obj list
+### LDADS_file() completed.

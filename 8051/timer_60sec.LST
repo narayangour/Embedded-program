@@ -1,0 +1,26 @@
+C51 COMPILER V7.08   TIMER_60SEC                                                           10/02/2014 10:51:27 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE TIMER_60SEC
+OBJECT MODULE PLACED IN timer_60sec.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timer_60sec.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include"seg.h"
+   2          main()
+   3                  {
+   4   1                      unsigned char i,j;
+   5   1      `               while(1)
+*** ERROR C141 IN LINE 5 OF TIMER_60SEC.C: syntax error near '`'
+   6   1                      {
+   7   2                                      for(i=0;i<60;i++)
+   8   2                                      {
+   9   3                                              for(j=250;j>=0;j--);
+  10   3                                              dispi_2_mux_segs(i,0);
+  11   3                                      }
+  12   2                      }
+  13   1              
+  14   1              }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

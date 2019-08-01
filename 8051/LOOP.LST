@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  LOOP                                                                 08/07/2014 19:57:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN LOOP.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE LOOP.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0h
+                       2     
+0000 7F00              3     MOV R7,#00
+0002                   4     L4:
+0002 BF0502            5             CJNE R7,#5,L1
+0005 800E              6             SJMP LAST
+0007                   7     L1:
+0007 7E00              8             MOV R6,#0
+0009 BE0506            9     L3:     CJNE R6,#5,L2
+                      10     
+000C 7800             11             MOV R0,#0
+000E 08               12             INC R0
+                      13     
+000F 0F               14             INC R7
+0010 80F0             15             SJMP L4
+                      16             
+0012 0E               17     L2:     INC R6
+0013 80F4             18             SJMP L3
+0015                  19     LAST:
+                      20     end
+A51 MACRO ASSEMBLER  LOOP                                                                 08/07/2014 19:57:43 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0007H   A   
+L2 . . . . . . . .  C ADDR   0012H   A   
+L3 . . . . . . . .  C ADDR   0009H   A   
+L4 . . . . . . . .  C ADDR   0002H   A   
+LAST . . . . . . .  C ADDR   0015H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

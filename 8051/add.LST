@@ -1,0 +1,35 @@
+A51 MACRO ASSEMBLER  ADD                                                                  08/07/2014 05:26:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN add.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE add.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0
+0000 753115            2     mov 31h,#15h
+0003 753223            3     mov 32h,#23h
+0006 E531              4     mov a,31h
+0008 2532              5     add a,32h
+000A F8                6     mov r0,a
+000B E4                7     clr a
+000C 3400              8     addc a,#00h
+000E 2500              9     add a,00h
+0010 C4               10     swap a
+0011 F540             11     mov 40h,a
+                      12     end
+A51 MACRO ASSEMBLER  ADD                                                                  08/07/2014 05:26:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

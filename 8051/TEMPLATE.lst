@@ -1,0 +1,481 @@
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\TEMPLATE.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE C:\Keil2\C51\ASM\TEMPLATE.A51 SET(SMALL) DEBUG PRINT(.\TEMPLATE.lst) OBJE
+                      CT(C:\isp\TEMPLATE.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;------------------------------------------------------------------------------
+                       2     ; Source code template for A251/A51 assembler modules.
+                       3     ; Copyright (c) 1995-2000 KEIL Software, Inc.
+                       4     ;------------------------------------------------------------------------------
+                       5     $nomod51                 ; disable predefined 8051 registers
+                       6     ;#include <reg52.h> 
+                +1     7     
+                +1     8     
+                +1     9     
+                +1    10     
+                +1    11     
+                +1    12     
+                +1    13     
+                +1    14     
+                +1    15     
+                +1    16     
+                +1    17     
+                +1    18     
+  0080          +1    19     sfr P0    = 0x80;
+  0090          +1    20     sfr P1    = 0x90;
+  00A0          +1    21     sfr P2    = 0xA0;
+  00B0          +1    22     sfr P3    = 0xB0;
+  00D0          +1    23     sfr PSW   = 0xD0;
+  00E0          +1    24     sfr ACC   = 0xE0;
+  00F0          +1    25     sfr B     = 0xF0;
+  0081          +1    26     sfr SP    = 0x81;
+  0082          +1    27     sfr DPL   = 0x82;
+  0083          +1    28     sfr DPH   = 0x83;
+  0087          +1    29     sfr PCON  = 0x87;
+  0088          +1    30     sfr TCON  = 0x88;
+  0089          +1    31     sfr TMOD  = 0x89;
+  008A          +1    32     sfr TL0   = 0x8A;
+  008B          +1    33     sfr TL1   = 0x8B;
+  008C          +1    34     sfr TH0   = 0x8C;
+  008D          +1    35     sfr TH1   = 0x8D;
+  00A8          +1    36     sfr IE    = 0xA8;
+  00B8          +1    37     sfr IP    = 0xB8;
+  0098          +1    38     sfr SCON  = 0x98;
+  0099          +1    39     sfr SBUF  = 0x99;
+                +1    40     
+                +1    41     
+  00C8          +1    42     sfr T2CON  = 0xC8;
+  00CA          +1    43     sfr RCAP2L = 0xCA;
+  00CB          +1    44     sfr RCAP2H = 0xCB;
+  00CC          +1    45     sfr TL2    = 0xCC;
+  00CD          +1    46     sfr TH2    = 0xCD;
+                +1    47     
+                +1    48     
+                +1    49     
+                +1    50     
+  00D7          +1    51     sbit CY    = PSW^7;
+  00D6          +1    52     sbit AC    = PSW^6;
+  00D5          +1    53     sbit F0    = PSW^5;
+  00D4          +1    54     sbit RS1   = PSW^4;
+  00D3          +1    55     sbit RS0   = PSW^3;
+  00D2          +1    56     sbit OV    = PSW^2;
+  00D0          +1    57     sbit P     = PSW^0; //8052 only
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     2
+
+                +1    58     
+                +1    59     
+  008F          +1    60     sbit TF1   = TCON^7;
+  008E          +1    61     sbit TR1   = TCON^6;
+  008D          +1    62     sbit TF0   = TCON^5;
+  008C          +1    63     sbit TR0   = TCON^4;
+  008B          +1    64     sbit IE1   = TCON^3;
+  008A          +1    65     sbit IT1   = TCON^2;
+  0089          +1    66     sbit IE0   = TCON^1;
+  0088          +1    67     sbit IT0   = TCON^0;
+                +1    68     
+                +1    69     
+  00AF          +1    70     sbit EA    = IE^7;
+  00AD          +1    71     sbit ET2   = IE^5; //8052 only
+  00AC          +1    72     sbit ES    = IE^4;
+  00AB          +1    73     sbit ET1   = IE^3;
+  00AA          +1    74     sbit EX1   = IE^2;
+  00A9          +1    75     sbit ET0   = IE^1;
+  00A8          +1    76     sbit EX0   = IE^0;
+                +1    77     
+                +1    78     
+  00BD          +1    79     sbit PT2   = IP^5;
+  00BC          +1    80     sbit PS    = IP^4;
+  00BB          +1    81     sbit PT1   = IP^3;
+  00BA          +1    82     sbit PX1   = IP^2;
+  00B9          +1    83     sbit PT0   = IP^1;
+  00B8          +1    84     sbit PX0   = IP^0;
+                +1    85     
+                +1    86     
+  00B7          +1    87     sbit RD    = P3^7;
+  00B6          +1    88     sbit WR    = P3^6;
+  00B5          +1    89     sbit T1    = P3^5;
+  00B4          +1    90     sbit T0    = P3^4;
+  00B3          +1    91     sbit INT1  = P3^3;
+  00B2          +1    92     sbit INT0  = P3^2;
+  00B1          +1    93     sbit TXD   = P3^1;
+  00B0          +1    94     sbit RXD   = P3^0;
+                +1    95     
+                +1    96     
+  009F          +1    97     sbit SM0   = SCON^7;
+  009E          +1    98     sbit SM1   = SCON^6;
+  009D          +1    99     sbit SM2   = SCON^5;
+  009C          +1   100     sbit REN   = SCON^4;
+  009B          +1   101     sbit TB8   = SCON^3;
+  009A          +1   102     sbit RB8   = SCON^2;
+  0099          +1   103     sbit TI    = SCON^1;
+  0098          +1   104     sbit RI    = SCON^0;
+                +1   105     
+                +1   106     
+  0091          +1   107     sbit T2EX  = P1^1; // 8052 only
+  0090          +1   108     sbit T2    = P1^0; // 8052 only
+                +1   109                  
+                +1   110     
+  00CF          +1   111     sbit TF2    = T2CON^7;
+  00CE          +1   112     sbit EXF2   = T2CON^6;
+  00CD          +1   113     sbit RCLK   = T2CON^5;
+  00CC          +1   114     sbit TCLK   = T2CON^4;
+  00CB          +1   115     sbit EXEN2  = T2CON^3;
+  00CA          +1   116     sbit TR2    = T2CON^2;
+  00C9          +1   117     sbit C_T2   = T2CON^1;
+  00C8          +1   118     sbit CP_RL2 = T2CON^0;
+                +1   119     
+                +1   120     
+                     121     
+                     122     
+                     123     ;------------------------------------------------------------------------------
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     3
+
+                     124     ; Change names in lowercase to suit your needs.
+                     125     ;
+                     126     ; This assembly template gives you an idea of how to use the A251/A51
+                     127     ; Assembler.  You are not required to build each module this way-this is only
+                     128     ; an example.
+                     129     ;
+                     130     ; All entries except the END statement at the End Of File are optional. 
+                     131     ;
+                     132     ; If you use this template, make sure you remove any unused segment declarations,
+                     133     ; as well as unused variable space and assembly instructions.
+                     134     ;
+                     135     ; This file cannot provide for every possible use of the A251/A51 Assembler.
+                     136     ; Refer to the A51/A251 User's Guide for more information.
+                     137     ;------------------------------------------------------------------------------
+                     138     
+                     139     ;------------------------------------------------------------------------------
+                     140     ; Module name (optional)
+                     141     ;------------------------------------------------------------------------------
+                     142     NAME            module_name
+                     143     
+                     144     ;------------------------------------------------------------------------------
+                     145     ; Here, you may import symbols form other modules.
+                     146     ;------------------------------------------------------------------------------
+                     147     EXTRN   CODE   (code_symbol)    ; May be a subroutine entry declared in
+                     148                                     ; CODE segments or with CODE directive.
+                     149     
+                     150     EXTRN   DATA   (data_symbol)    ; May be any symbol declared in DATA segments
+                     151                                     ; segments or with DATA directive.
+                     152     
+                     153     EXTRN   BIT    (bit_symbol)     ; May be any symbol declared in BIT segments
+                     154                                     ; or with BIT directive.
+                     155     
+                     156     EXTRN   XDATA  (xdata_symbol)   ; May be any symbol declared in XDATA segments
+                     157                                     ; or with XDATA directive.
+                     158     
+                     159     EXTRN   NUMBER (typeless_symbol); May be any symbol declared with EQU or SET
+                     160                                     ; directive
+                     161     
+                     162     ;------------------------------------------------------------------------------
+                     163     ; You may include more than one symbol in an EXTRN statement.
+                     164     ;------------------------------------------------------------------------------
+                     165     EXTRN   CODE (sub_routine1, sub_routine2), DATA (variable_1)
+                     166     
+                     167     ;------------------------------------------------------------------------------
+                     168     ; Force a page break in the listing file.
+                     169     ;------------------------------------------------------------------------------
+                     170     $eject 
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     4
+
+                     171     
+                     172     ;------------------------------------------------------------------------------
+                     173     ; Here, you may export symbols to other modules. 
+                     174     ;------------------------------------------------------------------------------
+                     175     PUBLIC  data_variable
+                     176     PUBLIC  code_entry              
+                     177     PUBLIC  typeless_number
+                     178     PUBLIC  xdata_variable
+                     179     PUBLIC  bit_variable
+                     180     
+                     181     ;------------------------------------------------------------------------------
+                     182     ; You may include more than one symbol in a PUBLIC statement.
+                     183     ;------------------------------------------------------------------------------
+                     184     PUBLIC  data_variable1, code_table, typeless_num1, xdata_variable1
+                     185     
+                     186     ;------------------------------------------------------------------------------
+                     187     ; Put the STACK segment in the main module.
+                     188     ;------------------------------------------------------------------------------
+                     189     ?STACK          SEGMENT IDATA           ; ?STACK goes into IDATA RAM.
+----                 190                     RSEG    ?STACK          ; switch to ?STACK segment.
+0000                 191                     DS      5               ; reserve your stack space
+                     192                                             ; 5 bytes in this example.
+                     193     
+                     194     
+                     195     $eject 
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     5
+
+                     196     
+                     197     ;------------------------------------------------------------------------------
+                     198     ; Put segment and variable declarations here.
+                     199     ;------------------------------------------------------------------------------
+                     200     
+                     201     ;------------------------------------------------------------------------------
+                     202     ; DATA SEGMENT--Reserves space in DATA RAM--Delete this segment if not used.
+                     203     ;------------------------------------------------------------------------------
+                     204     data_seg_name   SEGMENT DATA            ; segment for DATA RAM.
+----                 205                     RSEG    data_seg_name   ; switch to this data segment
+0000                 206     data_variable:  DS      1               ; reserve 1 Bytes for data_variable
+0001                 207     data_variable1: DS      2               ; reserve 2 Bytes for data_variable1
+                     208     
+                     209     ;------------------------------------------------------------------------------
+                     210     ; XDATA SEGMENT--Reserves space in XDATA RAM--Delete this segment if not used.
+                     211     ;------------------------------------------------------------------------------
+                     212     xdata_seg_name  SEGMENT XDATA           ; segment for XDATA RAM
+----                 213                     RSEG    xdata_seg_name  ; switch to this xdata segment
+0000                 214     xdata_variable: DS      1               ; reserve 1 Bytes for xdata_variable
+0001                 215     xdata_array:    DS      500             ; reserve 500 Bytes for xdata_array
+                     216     
+                     217     ;------------------------------------------------------------------------------
+                     218     ; INPAGE XDATA SEGMENT--Reserves space in XDATA RAM page (page size: 256 Bytes)
+                     219     ; INPAGE segments are useful for @R0 addressing methodes.
+                     220     ; Delete this segment if not used.
+                     221     ;------------------------------------------------------------------------------
+                     222     page_xdata_seg  SEGMENT XDATA INPAGE    ; INPAGE segment for XDATA RAM
+----                 223                     RSEG    xdata_seg_name  ; switch to this xdata segment
+01F5                 224     xdata_variable1:DS      1               ; reserve 1 Bytes for xdata_variable1
+                     225     
+                     226     ;------------------------------------------------------------------------------
+                     227     ; ABSOLUTE XDATA SEGMENT--Reserves space in XDATA RAM at absolute addresses.
+                     228     ; ABSOLUTE segments are useful for memory mapped I/O.
+                     229     ; Delete this segment if not used.
+                     230     ;------------------------------------------------------------------------------
+----                 231                     XSEG    AT 8000H        ; switch absolute XDATA segment @ 8000H
+8000                 232     XIO:            DS      1               ; reserve 1 Bytes for XIO port
+8001                 233     XCONFIG:        DS      1               ; reserve 1 Bytes for XCONFIG port
+                     234     
+                     235     ;------------------------------------------------------------------------------
+                     236     ; BIT SEGMENT--Reserves space in BIT RAM--Delete segment if not used.
+                     237     ;------------------------------------------------------------------------------
+                     238     bit_seg_name    SEGMENT BIT             ; segment for BIT RAM.
+----                 239                     RSEG    bit_seg_name    ; switch to this bit segment
+0000                 240     bit_variable:   DBIT    1               ; reserve 1 Bit for bit_variable
+0001                 241     bit_variable1:  DBIT    4               ; reserve 4 Bits for bit_variable1
+                     242     
+                     243     ;------------------------------------------------------------------------------
+                     244     ; Add constant (typeless) numbers here.
+                     245     ;------------------------------------------------------------------------------
+  000D               246     typeless_number EQU     0DH                     ; assign 0D hex
+  0005               247     typeless_num1   EQU     typeless_number-8       ; evaluate typeless_num1
+                     248     
+                     249     $eject 
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     6
+
+                     250     
+                     251     ;------------------------------------------------------------------------------
+                     252     ; Provide an LJMP to start at the reset address (address 0) in the main module.
+                     253     ; You may use this style for interrupt service routines.
+                     254     ;------------------------------------------------------------------------------
+----                 255                     CSEG    AT      0       ; absolute Segment at Address 0
+0000 020000   F      256                     LJMP    start           ; reset location (jump to start)
+                     257     
+                     258     ;------------------------------------------------------------------------------
+                     259     ; CODE SEGMENT--Reserves space in CODE ROM for assembler instructions.
+                     260     ;------------------------------------------------------------------------------
+                     261     code_seg_name   SEGMENT CODE
+                     262             
+----                 263                     RSEG    code_seg_name   ; switch to this code segment
+                     264     
+                     265                     USING   0               ; state register_bank used
+                     266                                             ; for the following program code.  
+                     267     
+0000 758100   F      268     start:          MOV     SP,#?STACK-1    ; assign stack at beginning
+                     269     
+                     270     ;------------------------------------------------------------------------------
+                     271     ; Insert your assembly program here.  Note, the code below is non-functional.
+                     272     ;------------------------------------------------------------------------------
+0003 43A882          273                     ORL     IE,#82H         ; enable interrupt system (timer 0)
+0006 D28C            274                     SETB    TR0             ; enable timer 0
+0008 E500     F      275     repeat_label:   MOV     A,data_symbol
+000A 2400     F      276                     ADD     A,#typeless_symbol
+000C 120000   F      277                     CALL    code_symbol
+000F 900000   F      278                     MOV     DPTR,#xdata_symbol
+0012 E0              279                     MOVX    A,@DPTR
+0013 F9              280                     MOV     R1,A
+0014 C001            281                     PUSH    AR1
+0016 120000   F      282                     CALL    sub_routine1
+0019 D001            283                     POP     AR1
+001B 29              284                     ADD     A,R1
+001C 80EA            285                     JMP     repeat_label
+                     286     
+001E 120000   F      287     code_entry:     CALL    code_symbol
+0021 22              288                     RET
+                     289     
+0022 0000     F      290     code_table:     DW      repeat_label
+0024 0000     F      291                     DW      code_entry
+0026 0D              292                     DB      typeless_number
+0027 00              293                     DB      0
+                     294     $eject 
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     7
+
+                     295     
+                     296     ;------------------------------------------------------------------------------
+                     297     ; To include an interrupt service routins, provide an LJMP to the ISR at the
+                     298     ; interrupt vector address.
+                     299     ;------------------------------------------------------------------------------
+----                 300                     CSEG    AT  0BH         ; 0BH is address for Timer 0 interrupt
+000B 020000   F      301                     LJMP    timer0int
+                     302     
+                     303     ;------------------------------------------------------------------------------
+                     304     ; Give each interrupt function its own code segment.
+                     305     ;------------------------------------------------------------------------------
+                     306     int0_code_seg   SEGMENT CODE            ; segment for interrupt function
+----                 307                     RSEG    int0_code_seg   ; switch to this code segment
+                     308                     USING   1               ; register bank for interrupt routine
+                     309     
+0000 C0D0            310     timer0int:      PUSH    PSW
+0002 75D008          311                     MOV     PSW,#08H        ; register bank 1
+0005 C0E0            312                     PUSH    ACC
+0007 A900     F      313                     MOV     R1,data_variable
+0009 900000   F      314                     MOV     DPTR,#xdata_variable
+000C E0              315                     MOVX    A,@DPTR
+000D 29              316                     ADD     A,R1
+000E F500     F      317                     MOV     data_variable1,A
+0010 E4              318                     CLR     A
+0011 2400            319                     ADD     A,#0
+0013 F500     F      320                     MOV     data_variable1+1,A
+0015 D0E0            321                     POP     ACC
+0017 D0D0            322                     POP     PSW
+0019 32              323                     RETI
+                     324                     
+                     325     ;------------------------------------------------------------------------------
+                     326     ; The END directive is ALWAYS required.
+                     327     ;------------------------------------------------------------------------------
+                     328                     END             ; End Of File
+                             
+                             
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     8
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?STACK . . . . . .  I SEG    0005H       REL=UNIT
+AC . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+AR1. . . . . . . .  D ADDR   0009H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BIT_SEG_NAME . . .  B SEG    0005H       REL=UNIT
+BIT_SYMBOL . . . .  B ADDR   -----       EXT
+BIT_VARIABLE . . .  B ADDR   0000H.0 R   SEG=BIT_SEG_NAME
+BIT_VARIABLE1. . .  B ADDR   0000H.1 R   SEG=BIT_SEG_NAME
+CODE_ENTRY . . . .  C ADDR   001EH   R   SEG=CODE_SEG_NAME
+CODE_SEG_NAME. . .  C SEG    0028H       REL=UNIT
+CODE_SYMBOL. . . .  C ADDR   -----       EXT
+CODE_TABLE . . . .  C ADDR   0022H   R   SEG=CODE_SEG_NAME
+CP_RL2 . . . . . .  B ADDR   00C8H.0 A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2 . . . . . . .  B ADDR   00C8H.1 A   
+DATA_SEG_NAME. . .  D SEG    0003H       REL=UNIT
+DATA_SYMBOL. . . .  D ADDR   -----       EXT
+DATA_VARIABLE. . .  D ADDR   0000H   R   SEG=DATA_SEG_NAME
+DATA_VARIABLE1 . .  D ADDR   0001H   R   SEG=DATA_SEG_NAME
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . .  B ADDR   0088H.3 A   
+INT0 . . . . . . .  B ADDR   00B0H.2 A   
+INT0_CODE_SEG. . .  C SEG    001AH       REL=UNIT
+INT1 . . . . . . .  B ADDR   00B0H.3 A   
+IP . . . . . . . .  D ADDR   00B8H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+MODULE_NAME. . . .  N NUMB   -----       
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PAGE_XDATA_SEG . .  X SEG    0000H       REL=INPAGE
+PCON . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . .  D ADDR   00CAH   A   
+A51 MACRO ASSEMBLER  TEMPLATE                                                             08/21/2014 12:09:42 PAGE     9
+
+RCLK . . . . . . .  B ADDR   00C8H.5 A   
+RD . . . . . . . .  B ADDR   00B0H.7 A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+REPEAT_LABEL . . .  C ADDR   0008H   R   SEG=CODE_SEG_NAME
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . .  B ADDR   00B0H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0000H   R   SEG=CODE_SEG_NAME
+SUB_ROUTINE1 . . .  C ADDR   -----       EXT
+SUB_ROUTINE2 . . .  C ADDR   -----       EXT
+T0 . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+T2 . . . . . . . .  B ADDR   0090H.0 A   
+T2CON. . . . . . .  D ADDR   00C8H   A   
+T2EX . . . . . . .  B ADDR   0090H.1 A   
+TB8. . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . .  D ADDR   00CDH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TIMER0INT. . . . .  C ADDR   0000H   R   SEG=INT0_CODE_SEG
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . .  D ADDR   00CCH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . .  B ADDR   00C8H.2 A   
+TXD. . . . . . . .  B ADDR   00B0H.1 A   
+TYPELESS_NUM1. . .  N NUMB   0005H   A   
+TYPELESS_NUMBER. .  N NUMB   000DH   A   
+TYPELESS_SYMBOL. .  N ADDR   -----       EXT
+VARIABLE_1 . . . .  D ADDR   -----       EXT
+WR . . . . . . . .  B ADDR   00B0H.6 A   
+XCONFIG. . . . . .  X ADDR   8001H   A   
+XDATA_ARRAY. . . .  X ADDR   0001H   R   SEG=XDATA_SEG_NAME
+XDATA_SEG_NAME . .  X SEG    01F6H       REL=UNIT
+XDATA_SYMBOL . . .  X ADDR   -----       EXT
+XDATA_VARIABLE . .  X ADDR   0000H   R   SEG=XDATA_SEG_NAME
+XDATA_VARIABLE1. .  X ADDR   01F5H   R   SEG=XDATA_SEG_NAME
+XIO. . . . . . . .  X ADDR   8000H   A   
+
+
+REGISTER BANK(S) USED: 0 1 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

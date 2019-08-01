@@ -1,0 +1,20 @@
+CSEG AT 0h
+
+MOV R7,#00
+L4:
+	CJNE R7,#5,L1
+	SJMP LAST
+L1:
+	MOV R6,#0
+L3:	CJNE R6,#5,L2
+
+	MOV R0,#0
+	INC R0
+
+	INC R7
+	SJMP L4
+	
+L2:	INC R6
+	SJMP L3
+LAST:
+end

@@ -1,0 +1,9 @@
+Dependencies for Project 'RTX_ex1', Target 'Simulator': (DO NOT MODIFY !)
+F (.\RTX_ex1.c)(0x5100AE6C)( --thumb -c --cpu ARM7TDMI -D__RTX -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips -o ".\Obj\rtx_ex1.o" --depend ".\Obj\rtx_ex1.d")
+I (C:\Keil4\ARM\RV31\INC\RTL.h)(0x5100AF04)
+F (.\RTX_Config.c)(0x5100AE6C)( --thumb -c --cpu ARM7TDMI -D__RTX -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips -o ".\Obj\rtx_config.o" --depend ".\Obj\rtx_config.d")
+I (C:\Keil4\ARM\RV31\INC\RTL.h)(0x5100AF04)
+I (C:\Keil4\ARM\Inc\Philips\LPC21xx.H)(0x5086BE16)
+I (C:\Keil4\ARM\RV31\INC\RTX_lib.c)(0x5100AF04)
+F (.\Startup.s)(0x5087E168)(--cpu ARM7TDMI --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I C:\Keil4\ARM\RV31\INC -I C:\Keil4\ARM\CMSIS\Include -I C:\Keil4\ARM\Inc\Philips --list ".\Lst\Startup.lst" --xref -o ".\Obj\Startup.o" --depend ".\Obj\Startup.d")
+F (.\Abstract.txt)(0x5087E168)()

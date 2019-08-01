@@ -1,0 +1,9 @@
+#include"keypad.h"
+#include<reg51.h>
+main()
+{
+	while(1)
+		{
+		P2=keyscan();
+		}
+}

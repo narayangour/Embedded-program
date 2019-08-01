@@ -1,0 +1,52 @@
+C51 COMPILER V7.08   TIMER                                                                 10/02/2014 11:25:30 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN timer.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timer.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1                  #include<reg51.h>
+   2                  timer_delay4752();
+   3                  timer_delay1728();
+   4          main()
+   5          {
+   6   1      //      timer_delay4752();
+   7   1              timer_delay1728();
+   8   1              while(1);
+   9   1      }
+  10          timer_delay1728()
+  11          {
+  12   1      TMOD=0x00;
+  13   1              TH0=0xCE;TL0=0x07;
+  14   1              TR0=1;
+  15   1              while(TF0==0);
+  16   1              TR0=0;
+  17   1              TF0=0;
+  18   1      }
+  19          
+  20          timer_delay4752()
+  21                  {
+  22   1              TMOD=0x00;
+  23   1              TH0=0x77;TL0=0x04;
+  24   1              TR0=1;
+  25   1              while(TF0==0);
+  26   1              TR0=0;
+  27   1              TF0=0;
+  28   1              }
+  29          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     43    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

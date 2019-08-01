@@ -1,0 +1,65 @@
+C51 COMPILER V7.08   DISPLAY1                                                              08/22/2014 11:48:51 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DISPLAY1
+OBJECT MODULE PLACED IN C:\isp\display1.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE display1.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\display1.obj)
+
+line level    source
+
+   1          #include"delays.h"
+   2          #include"reg51.h"
+   3          sbit sel1=P2^3;
+   4          sbit sel2=P2^2;
+   5          sbit sel3=P2^1;
+   6          sbit sel4=P2^0;
+   7          #define seg P0
+   8          code unsigned char seg_lut[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+   9          unsigned char dp1=0xff,dp2=0xff,dp3=0xff,dp4=0xff;
+  10          //dp1=0xff;dp2=0xff;dp3=0xff;dp4=0xff;
+  11          
+  12          void dispi_4_mux_segs(unsigned int n)
+  13          {
+  14   1                      seg=seg_lut[n/1000]&dp1;
+  15   1                      sel1=0;
+  16   1                      delay_ms(1);
+  17   1                      sel1=1;
+  18   1      
+  19   1                      seg = seg_lut[(n/100)%10]&dp2;
+  20   1                      sel2 = 0;
+  21   1                      delay_ms(1);
+  22   1                      sel2 = 1;
+  23   1      
+  24   1                      seg=seg_lut[(n%100)/10]&dp3;
+  25   1                      sel3=0;
+  26   1                      delay_ms(1);
+  27   1                      sel3=1;
+  28   1      
+  29   1                      seg=seg_lut[n%10]&dp4;
+  30   1                      sel4=0;
+  31   1                      delay_ms(1);
+  32   1                      sel4=1;
+  33   1      }
+  34          main()
+  35          {
+  36   1              
+  37   1              sel1=0,sel2=0,sel3=0,sel4=0;
+  38   1              while(1)
+  39   1              {
+  40   2              dispi_4_mux_segs(1548);
+  41   2              }
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    203    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

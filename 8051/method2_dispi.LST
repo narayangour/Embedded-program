@@ -1,0 +1,40 @@
+C51 COMPILER V7.08   METHOD2_DISPI                                                         08/25/2014 11:03:26 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE METHOD2_DISPI
+OBJECT MODULE PLACED IN method2_dispi.OBJ
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE method2_dispi.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          void disp2i_4_mux_segs(unsigned int n)
+   2          {
+   3   1      
+   4   1      unsigned char nod=0,i;
+   5   1      unsigned char t=n;
+   6   1              while(t)
+   7   1              {
+   8   2                      nod++;
+   9   2                      t=t/10;
+  10   2              }
+  11   1                      i=nod;
+  12   1              while(n)
+  13   1              {
+  14   2                      
+  15   2              }
+  16   1      
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

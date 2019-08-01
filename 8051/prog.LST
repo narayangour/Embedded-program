@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  PROG                                                                 08/04/2014 19:02:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN prog.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE prog.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 10H
+0010 41                2     CHAR:DB 'A'
+0011 56454354          3     STR :DB "VECTOR"
+0015 4F52                    
+0017 253645            4     NUM :DB 25H,36H,45H
+                       5     
+----                   6     CSEG AT 20H
+                       7     
+0020 7410              8     MOV A,#10H
+0022 93                9     MOVC A,@A+DPTR
+                      10     
+0023 7411             11     MOV A,#11H
+0025 93               12     MOVC A,@A+DPTR
+                      13     
+                      14     
+                      15     END
+A51 MACRO ASSEMBLER  PROG                                                                 08/04/2014 19:02:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHAR . . . . . . .  C ADDR   0010H   A   
+NUM. . . . . . . .  C ADDR   0017H   A   
+STR. . . . . . . .  C ADDR   0011H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

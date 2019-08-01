@@ -1,0 +1,35 @@
+A51 MACRO ASSEMBLER  INVERT_PORT_DATA                                                     08/06/2014 14:21:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN invert_port_data.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE invert_port_data.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+----                   2     CSEG AT 0
+                       3     
+0000 7845              4     MOV R0,#45H
+0002 7965              5     MOV R1,#65H
+                       6     
+0004 E8                7     MOV A,R0
+0005 C4                8     SWAP A
+0006 C9                9     XCH A,R1
+0007 C4               10     SWAP A
+0008 F8               11     MOV R0,A
+                      12     END
+A51 MACRO ASSEMBLER  INVERT_PORT_DATA                                                     08/06/2014 14:21:42 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

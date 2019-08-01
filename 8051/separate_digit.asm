@@ -1,0 +1,7 @@
+CSEG AT 0h
+
+MOV R7,#25H
+L1:DEC R7
+CJNE R7,#0H,L1
+
+end

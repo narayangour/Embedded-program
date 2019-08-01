@@ -1,0 +1,32 @@
+C51 COMPILER V7.08   MAIN_K                                                                08/28/2014 14:57:31 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE MAIN_K
+OBJECT MODULE PLACED IN C:\ng\main_k.obj
+COMPILER INVOKED BY: C:\KEIL708\C51\BIN\C51.EXE main_k.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ng\main_k.obj)
+
+line level    source
+
+   1          #include"keypad.h"
+   2          #include<reg51.h>
+   3          main()
+   4          {
+   5   1              while(1)
+   6   1                      {
+   7   2                      P2=keyscan();
+   8   2                      }
+   9   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      7    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

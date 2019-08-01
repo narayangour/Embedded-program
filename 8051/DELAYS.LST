@@ -1,0 +1,35 @@
+C51 COMPILER V7.08   DELAYS                                                                08/28/2014 16:02:29 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DELAYS
+OBJECT MODULE PLACED IN C:\ng\DELAYS.obj
+COMPILER INVOKED BY: C:\KEIL708\C51\BIN\C51.EXE DELAYS.C BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ng\DELAYS.obj)
+
+line level    source
+
+   1          void delay_ms(unsigned int dly)
+   2          {
+   3   1              
+   4   1              unsigned char i;
+   5   1              for(;dly>0;dly--)
+   6   1              {
+   7   2      
+   8   2              for(i=255;i>0;i--);
+   9   2              for(i=232;i>0;i--);
+  10   2      
+  11   2              }
+  12   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

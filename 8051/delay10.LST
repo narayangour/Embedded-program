@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  DELAY10                                                              08/12/2014 10:35:30 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN delay10.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE delay10.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0
+                       2     
+0000                   3     MAIN:
+0000 1104              4     ACALL DELAY10MS
+0002 80FE              5     SJMP $
+                       6     
+0004                   7     DELAY10MS:
+0004 7E09              8                     mov r6,#9
+0006                   9     l1:
+0006 110A             10                     acall delay1ms
+0008 DEFC             11                     djnz r6,l1
+000A                  12     delay1ms:
+000A 7FFF             13                     MOV R7,#255
+000C DFFE             14                     DJNZ R7,$
+000E 7FF2             15                     MOV R7,#242
+0010 DFFE             16                     DJNZ R7,$
+0012 22               17                     RET
+                      18     END
+A51 MACRO ASSEMBLER  DELAY10                                                              08/12/2014 10:35:30 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY10MS. . . . .  C ADDR   0004H   A   
+DELAY1MS . . . . .  C ADDR   000AH   A   
+L1 . . . . . . . .  C ADDR   0006H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

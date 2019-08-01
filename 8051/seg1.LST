@@ -1,0 +1,38 @@
+C51 COMPILER V7.08   SEG1                                                                  08/27/2014 18:58:06 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE SEG1
+OBJECT MODULE PLACED IN C:\isp\seg1.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE seg1.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\seg1.obj)
+
+line level    source
+
+   1          #include"delay.h"
+*** WARNING C318 IN LINE 1 OF seg1.c: can't open file 'delay.h'
+   2          #include"reg51.h"
+   3          
+   4          sbit sel1=P2^3;
+   5          sbit sel2=P2^2;
+   6          sbit sel3=P2^1;
+   7          sbit sel4=P2^0;
+   8          
+   9          #define seg P0
+  10          
+  11          code unsigned char seg_lut[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+  12          unsigned char dp1=0xff,dp2=0xff,dp3=0xff,dp4=0xff;
+  13          #endif
+*** WARNING C312 IN LINE 13 OF seg1.c: misplaced endif control
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

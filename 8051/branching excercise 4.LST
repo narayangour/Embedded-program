@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  BRANCHING_EXCERCISE_4                                                08/22/2014 17:31:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\branching excercise 4.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE branching excercise 4.asm SET(SMALL) DEBUG OBJECT(C:\isp\branching excerc
+                      ise 4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     cseg at 0
+                       2     
+0000 7D00              3             mov r5,#00h
+0002 7810              4             mov r0,#10h
+0004 7930              5             mov r1,#30h
+0006                   6     l1:
+0006 E6                7             mov a,@r0
+0007 F7                8             mov @r1,a
+0008 08                9             inc r0
+0009 09               10             inc r1
+000A 0D               11             inc r5
+000B BD11F8           12             cjne r5,#11h,l1
+000E 8000             13             sjmp next
+0010                  14     next:
+                      15     end   
+A51 MACRO ASSEMBLER  BRANCHING_EXCERCISE_4                                                08/22/2014 17:31:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0006H   A   
+NEXT . . . . . . .  C ADDR   0010H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  TEST                                                                 08/22/2014 17:01:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\test.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE test.asm SET(SMALL) DEBUG OBJECT(C:\isp\test.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     cseg at 0
+                       2     
+0000 7A00              3     mov r2,#00h
+0002 7D00              4     mov r5,#00h
+0004 7434              5     mov a,#34h
+0006                   6     l2:
+0006 C3                7     clr c
+0007 13                8     rrc a
+0008 4006              9     jc l1
+000A 0A               10     inc r2
+000B BA09F8           11     cjne r2,#09h,l2
+000E 8007             12     sjmp next
+0010                  13     l1: 
+0010 0D               14     inc r5
+0011 0A               15     inc r2
+0012 BA09F1           16     cjne r2,#09h,l2
+0015 8000             17     sjmp next
+0017                  18     next: 
+                      19     end   
+A51 MACRO ASSEMBLER  TEST                                                                 08/22/2014 17:01:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+L1 . . . . . . . .  C ADDR   0010H   A   
+L2 . . . . . . . .  C ADDR   0006H   A   
+NEXT . . . . . . .  C ADDR   0017H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

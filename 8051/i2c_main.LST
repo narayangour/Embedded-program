@@ -1,0 +1,61 @@
+C51 COMPILER V7.08   I2C_MAIN                                                              09/13/2014 06:06:13 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE I2C_MAIN
+OBJECT MODULE PLACED IN C:\isp n\i2c_main.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE i2c_main.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp n\i2c_main.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"delays.h"
+   3          #include"i2c.h"
+   4          #include"lcd.h"
+   5          unsigned char buff;// _at_ 0x30;
+   6          main()
+   7          {
+   8   1              unsigned char i,j;
+   9   1              init_lcd();
+  10   1              //putc_lcd('c');
+  11   1      //      putc_lcd('b');
+  12   1              while(1)
+  13   1              {
+  14   2              for(j=0;j<16;j++)
+  15   2              {
+  16   3                      for(i=0;i<=2;i++)
+  17   3                      {
+  18   4                      i2c_device_write(0xa0,0x00,'a'+i);
+  19   4                      buff=i2c_device_read(0xa0,0x00);        
+  20   4                      cmd_lcd(0x80+i);
+  21   4                      putc_lcd(buff);
+  22   4                      delay_ms(100);
+  23   4                      }
+  24   3                      
+  25   3                      
+  26   3                      
+  27   3      //cmd_lcd(0x01);
+  28   3              }
+  29   2              
+  30   2      /*      while(1)
+  31   2      {
+  32   2              cmd_lcd(0x80);
+  33   2              putc_lcd(buff/16+48);
+  34   2              putc_lcd(buff%16+48);
+  35   2      }*/
+  36   2              //putc_lcd(buff);
+  37   2      }
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     70    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

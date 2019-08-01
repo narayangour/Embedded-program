@@ -1,0 +1,123 @@
+C51 COMPILER V7.08   I2C                                                                   09/13/2014 04:25:35 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE I2C
+OBJECT MODULE PLACED IN C:\isp n\i2c.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE i2c.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp n\i2c.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"delays.h"
+   3          sbit sda=P3^1;
+   4          sbit scl=P3^0;
+   5          void i2c_start()
+   6          {
+   7   1              //scl=0;
+   8   1              sda=1;//init
+   9   1              scl=1;//bus
+  10   1              sda=0;//and issue start condition
+  11   1      
+  12   1      }
+  13          void i2c_byte_write(unsigned char dat)
+  14          {
+  15   1                      unsigned char i;
+  16   1                      for(i=0;i<8;i++)
+  17   1                      {
+  18   2                      scl=0;
+  19   2                      sda=((dat&(0x80>>i))?1:0);
+  20   2                      scl=1;
+  21   2                      }       
+  22   1      
+  23   1      
+  24   1      }
+  25          void i2c_ack()
+  26          {
+  27   1              scl=0;
+  28   1              sda=1;
+  29   1              scl=1;
+  30   1              while(sda==1);
+  31   1      }
+  32          void i2c_stop()
+  33          {
+  34   1              scl=0;
+  35   1              sda=0;//init
+  36   1              scl=1;//bus
+  37   1              sda=1;//and issue start condition
+  38   1      
+  39   1      }
+  40          void i2c_noack()
+  41          {
+  42   1              scl=0;
+  43   1              sda=1;
+  44   1              scl=1;
+  45   1      }
+  46          void i2c_device_write(unsigned char sa,unsigned char addr,unsigned char dat)
+  47          {
+  48   1              i2c_start();
+  49   1              i2c_byte_write(sa);
+  50   1              i2c_ack();
+  51   1              i2c_byte_write(addr);
+  52   1              i2c_ack();
+  53   1              i2c_byte_write(dat);
+  54   1              i2c_ack();      
+  55   1              i2c_stop();
+C51 COMPILER V7.08   I2C                                                                   09/13/2014 04:25:35 PAGE 2   
+
+  56   1              delay_ms(10);
+  57   1      
+  58   1      }
+  59          unsigned char i2c_byte_read()
+  60          {
+  61   1      unsigned char i,buff=0;
+  62   1              for(i=0;i<8;i++)
+  63   1              {
+  64   2              scl=0;
+  65   2              
+  66   2              if(sda)
+  67   2              buff|=(0x80>>i);
+  68   2              scl=1;  
+  69   2              }
+  70   1              return buff;    
+  71   1      }
+  72          unsigned char i2c_device_read(unsigned char sa,unsigned char addr)
+  73          {
+  74   1              unsigned char buff=0;
+  75   1              i2c_start();
+  76   1              i2c_byte_write(sa);
+  77   1              i2c_ack();
+  78   1              i2c_byte_write(addr);
+  79   1              i2c_ack();
+  80   1              scl=0;
+  81   1              i2c_start();
+  82   1              i2c_byte_write(sa|1);
+  83   1              i2c_ack();
+  84   1              buff=i2c_byte_read();
+  85   1              i2c_noack();
+  86   1              i2c_stop();
+  87   1              
+  88   1              return buff;
+  89   1      }
+  90          
+  91          
+  92          
+  93          
+  94          
+  95          
+  96          
+  97          
+  98          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    184    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

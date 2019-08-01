@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  LOOP1_1                                                              08/08/2014 17:15:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN LOOP1.1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE LOOP1.1.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     string segment code
+----                   2     rseg string 
+0000 77656C63          3     str: db 'welcome to vector'
+0004 6F6D6520                
+0008 746F2076                
+000C 6563746F                
+0010 72                      
+----                   4     cseg at 0
+0000 900000   F        5     mov dptr,#str
+0003 7830              6     mov r0,#30h
+0005 7F10              7     mov r7,#10h
+0007 7E00              8     mov r6,#00h
+                       9     
+                      10     
+0009                  11     again:
+0009 E4               12     clr a
+000A 93               13     movc a,@a+dptr
+000B F6               14     mov @r0,a
+000C C082             15     push dpl
+000E C083             16     push dph
+0010 8E82             17     mov dpl,r6
+0012 8F83             18     mov dph,r7
+0014 F0               19     movx @dptr,a
+0015 D083             20     pop dph
+0017 D082             21     pop dpl
+0019 A3               22     inc dptr
+001A 08               23     inc r0
+001B 0E               24     inc r6
+001C E582             25     mov a,dpl
+001E B400E8   F       26     cjne a,#str+17,again
+                      27     end
+                             
+A51 MACRO ASSEMBLER  LOOP1_1                                                              08/08/2014 17:15:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0009H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+STR. . . . . . . .  C ADDR   0000H   R   SEG=STRING
+STRING . . . . . .  C SEG    0011H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

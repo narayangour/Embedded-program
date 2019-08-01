@@ -1,0 +1,37 @@
+C51 COMPILER V7.08   TIMER_60SEC1                                                          08/27/2014 20:34:31 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE TIMER_60SEC1
+OBJECT MODULE PLACED IN C:\isp\timer_60sec1.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE timer_60sec1.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\timer_60sec1.obj)
+
+line level    source
+
+   1          #include"seg.h"
+   2          main()
+   3                  {
+   4   1                      unsigned char i,j;
+   5   1                      while(1)
+   6   1                      {
+   7   2                                      for(i=0;i<60;i++)
+   8   2                                      {
+   9   3                                              for(j=250;j>0;j--);
+  10   3                                              dispi_2_mux_segs(i,0);
+  11   3                                      }
+  12   2                      }
+  13   1              
+  14   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     28    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

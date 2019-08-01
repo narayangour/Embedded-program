@@ -1,0 +1,39 @@
+Build target 'Target 1'
+compiling i2c_main.c...
+compiling i2c.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _CMD_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _PUTC_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  INIT_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  INIT_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+    ADDRESS: 0004H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _CMD_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+    ADDRESS: 001AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _PUTC_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+    ADDRESS: 0025H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _PUTC_LCD
+    MODULE:  .\ngour isp\i2c_main.obj (I2C_MAIN)
+    ADDRESS: 002FH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_MS
+    MODULE:  .\ngour isp\i2c.obj (I2C)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_MS
+    MODULE:  .\ngour isp\i2c.obj (I2C)
+    ADDRESS: 009FH
+Program Size: data=10.0 xdata=0 code=247
+creating hex file from ".\ngour isp\prog"...
+".\ngour isp\prog" - 0 Error(s), 9 Warning(s).

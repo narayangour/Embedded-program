@@ -1,0 +1,5 @@
+--cpu ARM7TDMI ".\obj\rtos_tx.o" ".\obj\rtx_config.o" ".\obj\startup.o" 
+C:\Keil4\ARM\RV31\LIB\RTX_ARM_L.LIB --library_type=microlib --strict --scatter ".\Obj\rtos.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Lst\rtos.map" -o .\Obj\rtos.axf

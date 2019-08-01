@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  IN_OUT_BYTE2                                                         08/12/2014 12:27:24 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN IN_OUT_BYTE2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE IN_OUT_BYTE2.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1     OUTPORT EQU P1
+  00A0                 2     INPORT EQU P2
+----                   3     CSEG AT 0
+0000                   4     MAIN:
+0000 74FF              5             MOV A,#0FFH
+0002 B5A0FD            6             CJNE A,P2,$
+                       7     
+0005                   8     L2:
+0005 E5A0              9             MOV A,INPORT    
+0007 F590             10             MOV OUTPORT,A
+0009 85A090           11             MOV OUTPORT,INPORT
+000C D8F7             12             DJNZ R0,L2
+000E 80FE             13                                                                                                
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                                                                                                                                   SJMP $  
+0010 80EE             14             SJMP MAIN
+0012                  15     ENDMAIN:
+                      16     END
+A51 MACRO ASSEMBLER  IN_OUT_BYTE2                                                         08/12/2014 12:27:24 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ENDMAIN. . . . . .  C ADDR   0012H   A   
+INPORT . . . . . .  D ADDR   00A0H   A   
+L2 . . . . . . . .  C ADDR   0005H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+OUTPORT. . . . . .  D ADDR   0090H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,40 @@
+C51 COMPILER V7.08   MAIN_LED                                                              10/08/2014 23:20:06 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE MAIN_LED
+OBJECT MODULE PLACED IN C:\ISPs\main_led.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main_led.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ISPs\main_led.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"keypad.h"
+   3          #include"led.h"
+   4          //#include<seg.h>
+   5          void disp_bin_num_leds(unsigned char);
+   6          main()
+   7          {
+   8   1              unsigned char key;
+   9   1              init_leds();
+  10   1              while(1)
+  11   1                      {
+  12   2                      key=keyscan();
+  13   2                      disp_bin_num_leds(key);
+  14   2                      while(!colscan());
+  15   2                      }
+  16   1      
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     16    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

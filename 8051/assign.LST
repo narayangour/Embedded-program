@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  ASSIGN                                                               08/22/2014 15:54:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN C:\isp\assign.obj
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE assign.asm SET(SMALL) DEBUG OBJECT(C:\isp\assign.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     cseg at 0
+0000 7DEC              2     mov r5,#0ech 
+0002 7900              3     mov r1,#00h  
+0004 ED                4     mov a,r5         
+0005 D7                5     xchd a,@r1       
+0006 C4                6     swap a           
+0007 2406              7     add a,#06h       
+0009 FA                8     mov r2,a         
+000A ED                9     mov a,r5         
+000B C4               10     swap a           
+000C 750000           11     mov 00h,#00h
+000F 7900             12     mov r1,#00h      
+0011 D7               13     xchd a,@r1       
+0012 C4               14     swap a           
+0013 3406             15     addc a,#06h
+0015 2A               16     add a,r2
+0016 FE               17     mov r6,a
+                      18     end
+A51 MACRO ASSEMBLER  ASSIGN                                                               08/22/2014 15:54:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

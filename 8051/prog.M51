@@ -1,0 +1,204 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        10/10/2014  16:23:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL2\C51\BIN\BL51.EXE C:\ISP\PROJECT.obj TO C:\ISP\prog PRINT (.\prog.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  C:\ISP\PROJECT.obj (PROJECT)
+  C:\KEIL2\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL2\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL2\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  C:\ISP\prog (PROJECT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000BH     UNIT         _DATA_GROUP_
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     014BH     UNIT         ?C?LIB_CODE
+            CODE    014EH     0071H     UNIT         ?PR?_PUTUI_UART?PROJECT
+            CODE    01BFH     0062H     UNIT         ?PR?MAIN?PROJECT
+            CODE    0221H     0010H     UNIT         ?PR?DELAY3633?PROJECT
+            CODE    0231H     0010H     UNIT         ?PR?DELAY1675?PROJECT
+            CODE    0241H     000FH     UNIT         ?PR?INIT_UART?PROJECT
+            CODE    0250H     000CH     UNIT         ?C_C51STARTUP
+            CODE    025CH     0008H     UNIT         ?PR?_UART_TX?PROJECT
+            CODE    0264H     0005H     UNIT         ?CO?PROJECT
+
+
+
+OVERLAY MAP OF MODULE:   C:\ISP\prog (PROJECT)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?PROJECT
+
+?PR?MAIN?PROJECT                0008H    0003H
+  +--> ?PR?DELAY3633?PROJECT
+  +--> ?PR?DELAY1675?PROJECT
+  +--> ?PR?INIT_UART?PROJECT
+  +--> ?PR?_PUTUI_UART?PROJECT
+
+?PR?_PUTUI_UART?PROJECT         000BH    0008H
+  +--> ?CO?PROJECT
+  +--> ?PR?_UART_TX?PROJECT
+
+BL51 BANKED LINKER/LOCATER V5.03                                                      10/10/2014  16:23:41  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  C:\ISP\prog (PROJECT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROJECT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:0098H.1       PUBLIC        TI
+  C:01BFH         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:014EH         PUBLIC        _putui_uart
+  C:0264H         SYMBOL        _?ix1000
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:0241H         PUBLIC        init_uart
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:00B0H.3       PUBLIC        ir
+  C:0221H         PUBLIC        delay3633
+  C:0231H         PUBLIC        delay1675
+  C:025CH         PUBLIC        _uart_tx
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        address
+  D:000AH         SYMBOL        command
+  -------         ENDDO         
+  C:01BFH         LINE#         17
+  C:01BFH         LINE#         18
+  C:01BFH         LINE#         20
+  C:01C2H         LINE#         21
+  C:01C4H         LINE#         23
+  C:01C4H         LINE#         24
+  C:01C4H         LINE#         25
+  C:01C7H         LINE#         26
+  C:01C9H         LINE#         27
+  C:01CCH         LINE#         29
+  C:01CFH         LINE#         32
+  C:01D2H         LINE#         33
+  C:01D2H         LINE#         34
+  C:01D5H         LINE#         35
+  C:01D8H         LINE#         36
+  C:01E7H         LINE#         37
+  C:01F2H         LINE#         38
+  C:01F5H         LINE#         39
+  C:01F5H         LINE#         40
+  C:01F8H         LINE#         41
+  C:01FBH         LINE#         42
+  C:020AH         LINE#         43
+BL51 BANKED LINKER/LOCATER V5.03                                                      10/10/2014  16:23:41  PAGE 3
+
+
+  C:0215H         LINE#         45
+  C:0218H         LINE#         46
+  C:021FH         LINE#         48
+  -------         ENDPROC       MAIN
+  -------         PROC          _PUTUI_UART
+  D:000BH         SYMBOL        n
+  -------         DO            
+  D:000DH         SYMBOL        a
+  D:0012H         SYMBOL        i
+  -------         ENDDO         
+  C:014EH         LINE#         57
+  C:0152H         LINE#         58
+  C:0152H         LINE#         59
+  C:0168H         LINE#         60
+  C:0175H         LINE#         62
+  C:017BH         LINE#         63
+  C:017BH         LINE#         64
+  C:0194H         LINE#         65
+  C:01A3H         LINE#         66
+  C:01A5H         LINE#         67
+  C:01B0H         LINE#         68
+  C:01BEH         LINE#         69
+  -------         ENDPROC       _PUTUI_UART
+  -------         PROC          DELAY3633
+  C:0221H         LINE#         70
+  C:0221H         LINE#         71
+  C:0221H         LINE#         72
+  C:0221H         LINE#         73
+  C:0224H         LINE#         74
+  C:0227H         LINE#         75
+  C:0229H         LINE#         76
+  C:022CH         LINE#         77
+  C:022EH         LINE#         78
+  C:0230H         LINE#         79
+  -------         ENDPROC       DELAY3633
+  -------         PROC          DELAY1675
+  C:0231H         LINE#         80
+  C:0231H         LINE#         81
+  C:0231H         LINE#         82
+  C:0231H         LINE#         83
+  C:0234H         LINE#         84
+  C:0237H         LINE#         85
+  C:0239H         LINE#         86
+  C:023CH         LINE#         87
+  C:023EH         LINE#         88
+  C:0240H         LINE#         89
+  -------         ENDPROC       DELAY1675
+  -------         PROC          INIT_UART
+  C:0241H         LINE#         90
+  C:0241H         LINE#         91
+  C:0241H         LINE#         92
+  C:0244H         LINE#         93
+  C:0247H         LINE#         94
+  C:024DH         LINE#         95
+  C:024FH         LINE#         96
+  -------         ENDPROC       INIT_UART
+  -------         PROC          _UART_TX
+BL51 BANKED LINKER/LOCATER V5.03                                                      10/10/2014  16:23:41  PAGE 4
+
+
+  D:0007H         SYMBOL        dat
+  C:025CH         LINE#         97
+  C:025CH         LINE#         98
+  C:025CH         LINE#         99
+  C:025EH         LINE#         100
+  C:0261H         LINE#         101
+  C:0263H         LINE#         102
+  -------         ENDPROC       _UART_TX
+  -------         ENDMOD        PROJECT
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?UIDIV
+  C:00F9H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=20.0 xdata=0 code=617
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

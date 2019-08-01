@@ -1,0 +1,61 @@
+C51 COMPILER V7.08   UART_M1                                                               09/17/2014 22:52:22 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE UART_M1
+OBJECT MODULE PLACED IN C:\isp n\uart_m1.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE uart_m1.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp n\uart_m1.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2                  #define BOUD 9600
+   3                  #define XTAL 11.0592
+   4                  #define TEMP (XTAL/(12*32)/BOUD)
+   5                  #define TEMP2 (TEMP*1000)*1000
+   6                  #define LOAD_VAL (256-TEMP2)
+   7          
+   8          void init_uart()
+   9          {
+  10   1              SCON=0x50;
+  11   1              TMOD=0x20;
+  12   1              TH1=LOAD_VAL,TL1=LOAD_VAL;
+  13   1              PCON|=0x80;
+  14   1              TR1=1;
+  15   1      }
+  16          void uart_tx(unsigned char  dat)
+  17          {
+  18   1              SBUF=dat;
+  19   1              while(!TI);
+  20   1              TI=0;
+  21   1      }
+  22          unsigned char uart_rx()
+  23          {
+  24   1              while(!RI);
+  25   1              RI=0;
+  26   1              return SBUF;
+  27   1      }
+  28          
+  29          
+  30          
+  31          
+  32          
+  33          
+  34          
+  35          
+  36          
+  37          
+  38          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     34    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

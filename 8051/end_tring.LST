@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  END_TRING                                                            08/08/2014 12:31:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN end_tring.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE end_tring.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     string segment code
+----                   2     rseg string 
+0000 77656C63          3     str: db 'welcome to vec*tor'
+0004 6F6D6520                
+0008 746F2076                
+000C 65632A74                
+0010 6F72                    
+----                   4     cseg at 0
+0000 900000   F        5     mov dptr,#str
+0003 7830              6     mov r0,#30h
+0005 7F10              7     mov r7,#10h
+0007 7E00              8     mov r6,#00h
+                       9     
+                      10     
+0009                  11     again:
+0009 E4               12     clr a
+000A 93               13     movc a,@a+dptr
+000B B42A02           14     cjne a,#'*',next
+000E 8013             15     sjmp last
+0010                  16     next:
+0010 F6               17     mov @r0,a
+0011 C082             18     push dpl
+0013 C083             19     push dph
+0015 8E82             20     mov dpl,r6
+0017 8F83             21     mov dph,r7
+0019 F0               22     movx @dptr,a
+001A D083             23     pop dph
+001C D082             24     pop dpl
+001E A3               25     inc dptr
+001F 08               26     inc r0
+0020 0E               27     inc r6
+0021 80E6             28     sjmp again
+0023                  29     last:
+                      30     end
+A51 MACRO ASSEMBLER  END_TRING                                                            08/08/2014 12:31:27 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0009H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+LAST . . . . . . .  C ADDR   0023H   A   
+NEXT . . . . . . .  C ADDR   0010H   A   
+STR. . . . . . . .  C ADDR   0000H   R   SEG=STRING
+STRING . . . . . .  C SEG    0012H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

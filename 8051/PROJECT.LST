@@ -1,0 +1,128 @@
+C51 COMPILER V7.08   PROJECT                                                               10/10/2014 16:23:40 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE PROJECT
+OBJECT MODULE PLACED IN C:\ISP\PROJECT.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE PROJECT.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\ISP\PROJECT.obj)
+
+line level    source
+
+   1          #include"reg51.h"
+   2          
+   3          void uart_tx(unsigned char  dat);
+   4          void putui_uart(unsigned int n);
+   5          void init_uart();
+   6          void delay3633();
+   7          void delay1675();
+   8          
+   9          sbit ir=P3^3;
+  10          
+  11          
+  12          #define BOUD 9600
+  13          #define XTAL 11.0592
+  14          #define TEMP (XTAL/(12*32)/BOUD)
+  15          #define TEMP2 (TEMP*1000)*1000
+  16          #define LOAD_VAL (256-TEMP2)
+  17          main()
+  18          {
+  19   1              char i;
+  20   1              unsigned char address=0;
+  21   1              unsigned char command=0;
+  22   1      //      TMOD=0x00;
+  23   1      while(1)
+  24   1      {
+  25   2              address=0;
+  26   2              command=0;
+  27   2              while(ir);
+  28   2      
+  29   2              delay3633();
+  30   2              //delay1675();
+  31   2      
+  32   2              for(i=4;i>=0;i--)
+  33   2              {
+  34   3              delay1675();
+  35   3              if(!ir)
+  36   3              address|=1<<i;
+  37   3              }
+  38   2              for(i=5;i>=0;i--)
+  39   2              {
+  40   3              delay1675();
+  41   3              if(!ir)
+  42   3              command|=1<<i;
+  43   3              }
+  44   2      
+  45   2              init_uart();
+  46   2              putui_uart(command);
+  47   2              
+  48   2      }
+  49   1      /*
+  50   1              init_uart();
+  51   1      while(1)
+  52   1      {
+  53   1      uart_tx(65);
+  54   1      }
+  55   1      */
+C51 COMPILER V7.08   PROJECT                                                               10/10/2014 16:23:40 PAGE 2   
+
+  56   1      }
+  57          void putui_uart(unsigned int n)
+  58          {
+  59   1              char a[5]={0},i=0;
+  60   1              if(n==0){uart_tx('0');}
+  61   1      else
+  62   1              while(n)
+  63   1              {
+  64   2              a[i++]=(n%10)+48;
+  65   2              n/=10;
+  66   2              }
+  67   1              for(--i;i>=0;i--)
+  68   1              uart_tx(a[i]);
+  69   1      }
+  70          void delay3633()
+  71          {
+  72   1              TMOD|=0x00;
+  73   1              TH0=0x96;
+  74   1              TL0=0x1f;         ////3633...TH=9d...TL=0b
+  75   1              TR0=1;
+  76   1              while(TF0==0);
+  77   1              TR0=0;
+  78   1              TF0=0;
+  79   1      }
+  80          void delay1675()
+  81          {
+  82   1              TMOD|=0x00;
+  83   1              TH0=0xcf;
+  84   1              TL0=0x0b;         ////1675...TH=CF...TL=18
+  85   1              TR0=1;
+  86   1              while(TF0==0);
+  87   1              TR0=0;
+  88   1              TF0=0;
+  89   1      }
+  90          void init_uart()
+  91          {
+  92   1              SCON=0x50;
+  93   1              TMOD=0x20;
+  94   1              TH1=LOAD_VAL,TL1=LOAD_VAL;
+  95   1              TR1=1;
+  96   1      }
+  97          void uart_tx(unsigned char  dat)
+  98          {
+  99   1              SBUF=dat;
+ 100   1              while(!TI);
+ 101   1              TI=0;
+ 102   1      }
+ 103          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    266    ----
+   CONSTANT SIZE    =      5    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

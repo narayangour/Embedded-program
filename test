@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<string.h>
+main()
+{
+char str[]="parul";
+char str2[]="devanshi";
+if((strlen(str)-strlen(str2))>=0)
+puts(str);
+else
+puts(str2);
+}
+

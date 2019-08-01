@@ -1,0 +1,54 @@
+A51 MACRO ASSEMBLER  IN_OUT_BYTE                                                          08/12/2014 11:57:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN IN_OUT_BYTE.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE IN_OUT_BYTE.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1     OUTPORT EQU P1
+  00A0                 2     INPORT EQU P2
+----                   3     CSEG AT 0
+0000                   4     MAIN:
+0000 759000            5             MOV OUTPORT,#00H
+0003 759055            6             MOV OUTPORT,#55H
+0006 7590AA            7             MOV OUTPORT,#0AAH
+                       8     
+0009 7810              9             MOV R0,#10H
+000B 7401             10             MOV A,#01H
+000D                  11     L1:     
+000D F590             12             MOV OUTPORT,A
+000F 04               13             INC A
+0010 D8FB             14             DJNZ R0,L1
+0012 7804             15             MOV R0,#4
+0014                  16     L2:
+0014 E5A0             17             MOV A,INPORT    
+0016 F590             18             MOV OUTPORT,A
+0018 85A090           19             MOV OUTPORT,INPORT
+001B D8F7             20             DJNZ R0,L2
+001D 80FE             21             SJMP $          
+001F                  22     ENDMAIN:
+                      23     END
+A51 MACRO ASSEMBLER  IN_OUT_BYTE                                                          08/12/2014 11:57:36 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ENDMAIN. . . . . .  C ADDR   001FH   A   
+INPORT . . . . . .  D ADDR   00A0H   A   
+L1 . . . . . . . .  C ADDR   000DH   A   
+L2 . . . . . . . .  C ADDR   0014H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+OUTPORT. . . . . .  D ADDR   0090H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

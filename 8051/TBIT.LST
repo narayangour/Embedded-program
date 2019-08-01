@@ -1,0 +1,29 @@
+A51 MACRO ASSEMBLER  TBIT                                                                 08/06/2014 14:41:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN TBIT.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE TBIT.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0000                 1     TBIT EQU 00H
+----                   2     CSEG AT 0
+0000 D200              3     SETB TBIT
+0002 75001A            4     MOV TBIT,#00011010B
+                       5     END
+A51 MACRO ASSEMBLER  TBIT                                                                 08/06/2014 14:41:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+TBIT . . . . . . .  N NUMB   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

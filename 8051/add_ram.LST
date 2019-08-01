@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  ADD_RAM                                                              08/08/2014 11:48:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN add_ram.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE add_ram.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0h
+                       2     
+0000 7517FF            3     mov 17h,#0xff
+0003 E517              4     mov a,17h
+0005 24FF              5     add a,#0xff
+0007 F532              6     mov 32h,a
+0009 7518FF            7     mov 18h,#0xff
+000C E518              8     mov a,18h
+000E 3400              9     addc a,#00h
+0010 F531             10     mov 31h,a
+0012 E4               11     clr a
+0013 3400             12     addc a,#0h
+0015 F530             13     mov 30h,a
+                      14     
+                      15     end
+A51 MACRO ASSEMBLER  ADD_RAM                                                              08/08/2014 11:48:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

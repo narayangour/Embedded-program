@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  BIGGEST                                                              08/08/2014 16:40:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN biggest.OBJ
+ASSEMBLER INVOKED BY: C:\Keil2\C51\BIN\A51.EXE biggest.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     string segment code
+----                   2     rseg string 
+0000 355E385C          3     str: db 53,94,56,92,74,65,43,23,83
+0004 4A412B17                
+0008 53                      
+----                   4     cseg at 0
+                       5     
+0000 7808              6             mov r0,#08h;for counting purposes
+0002 900000   F        7             mov dptr,#str
+0005 E4                8             clr a;a=0
+0006 93                9             movc a,@a+dptr;a=53
+                      10             ;mov r1,a;b=53 as a max initialize
+0007 F5F0             11             mov b,a
+0009 A9F0             12             mov r1,b
+                      13     ;       clr c
+                      14     ;       jnc again
+                      15     
+                      16     ;l2:    mov a,r1
+                      17     ;       mov r3,a
+                      18     ;       mov b,r3
+000B                  19     again:
+000B A3               20             inc dptr;dptr point to 94
+000C E4               21             clr a;a=0
+000D 93               22             movc a,@a+dptr;a=94
+000E FA               23             mov r2,a
+000F 84               24             div ab
+                      25     
+0010 7002             26             jnz l1
+0012 8004             27             sjmp l2
+0014 EA               28     l1:     mov a,r2
+0015 FB               29             mov r3,a
+0016 8BF0             30             mov b,r3
+0018                  31     l2:     
+0018 ABF0             32             mov r3,b
+001A 18               33             dec r0
+001B B800ED           34             cjne r0,#00h,again
+001E 8000             35             sjmp last
+0020                  36     last:
+                      37     end
+A51 MACRO ASSEMBLER  BIGGEST                                                              08/08/2014 16:40:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000BH   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+L1 . . . . . . . .  C ADDR   0014H   A   
+L2 . . . . . . . .  C ADDR   0018H   A   
+LAST . . . . . . .  C ADDR   0020H   A   
+STR. . . . . . . .  C ADDR   0000H   R   SEG=STRING
+STRING . . . . . .  C SEG    0009H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

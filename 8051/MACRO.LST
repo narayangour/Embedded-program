@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  MACRO                                                                08/06/2014 16:06:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.08a
+OBJECT MODULE PLACED IN MACRO.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE MACRO.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     RB0 MACRO 
+                       2     MOV PSW,#00H
+                       3     ENDM
+                       4     RB1 MACRO 
+                       5     MOV PSW,#08H
+                       6     ENDM
+                       7     RB2 MACRO 
+                       8     MOV PSW,#10H
+                       9     ENDM
+                      10     RB3 MACRO 
+                      11     MOV PSW,#18H
+                      12     ENDM
+----                  13     CSEG AT 0
+                      14     RB0
+0003 7803             16     MOV R0,#3H
+                      17     RB1
+0008 7803             19     MOV R0,#3H
+                      20     RB2
+000D 7803             22     MOV R0,#3H
+                      23     RB3
+0012 7803             25     MOV R0,#3H
+                      26     END
+A51 MACRO ASSEMBLER  MACRO                                                                08/06/2014 16:06:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,23 @@
+C51 COMPILER V7.08   DELAY                                                                 08/22/2014 11:36:08 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN C:\isp\delay.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE delay.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\delay.obj)
+
+line level    source
+
+   1          #include"delays.h"
+   2          main()
+   3          {
+   4   1      
+   5   1      delay_ms(2);
+   6   1      while(1);
+   7   1      
+   8   1      }
+
+C51 FATAL-ERROR -
+  ACTION:  CREATING OBJECT-FILE
+  FILE:    C:\isp\delay.obj
+  ERROR:   CAN'T CREATE FILE
+C51 TERMINATED.

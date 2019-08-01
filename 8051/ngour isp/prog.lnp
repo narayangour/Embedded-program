@@ -1,0 +1,4 @@
+".\ngour isp\i2c_main.obj",
+".\ngour isp\i2c.obj" 
+TO ".\ngour isp\prog" 
+PRINT(".\prog.m51") RAMSIZE(256) 

@@ -1,0 +1,48 @@
+C51 COMPILER V7.08   LCD_MAIN                                                              01/02/2002 04:16:19 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE LCD_MAIN
+OBJECT MODULE PLACED IN C:\isp\lcd_main.obj
+COMPILER INVOKED BY: C:\Keil2\C51\BIN\C51.EXE lcd_main.c BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\lcd_main.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"delays.h"
+   3          #include"lcd.h"
+   4          #include"mcp3204.h"
+   5          
+   6          main()
+   7          {
+   8   1              
+   9   1              init_lcd();
+  10   1              while(1)
+  11   1              {
+  12   2                      cmd_lcd(0x80);
+  13   2                      putf_lcd(read_adc_mcp3204(0));  
+  14   2      
+  15   2      cmd_lcd(0x88);
+  16   2                      putf_lcd(read_adc_mcp3204(1));
+  17   2      
+  18   2      cmd_lcd(0xc0);
+  19   2                      putf_lcd(read_adc_mcp3204(2));
+  20   2      
+  21   2      cmd_lcd(0xc8);
+  22   2                      putf_lcd(read_adc_mcp3204(3));  
+  23   2      
+  24   2              }               
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     57    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

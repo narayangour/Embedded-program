@@ -1,0 +1,34 @@
+C51 COMPILER V7.08   4SEG                                                                  08/27/2014 18:58:05 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE 4SEG
+OBJECT MODULE PLACED IN C:\isp\4SEG.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 4SEG.C BROWSE DEBUG OBJECTEXTEND OBJECT(C:\isp\4SEG.obj)
+
+line level    source
+
+   1          void disp2i_4_mux_segs(unsigned int n)
+   2          {
+   3   1              unsigned char nod=0,i;
+   4   1              unsigned char t=n;
+   5   1              while(t)
+   6   1              {
+   7   2                      nod++;
+   8   2                      t=t/10;
+   9   2              }
+  10   1                      i=nod;
+  11   1              while(n)
+  12   1              {
+  13   2                      seg=seg_lut[n%10];
+*** ERROR C202 IN LINE 13 OF 4SEG.C: 'seg': undefined identifier
+  14   2                      P2=P2 & (~(1<<(nod-i)));
+*** ERROR C202 IN LINE 14 OF 4SEG.C: 'P2': undefined identifier
+  15   2                      delay_ms(1);
+  16   2                      P2=oxff;
+  17   2                      n=n/10;
+  18   2              i--;
+  19   2               }
+  20   1      
+  21   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)
